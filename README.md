@@ -1,4 +1,37 @@
-# React + TypeScript + Vite
+# Stockie FE
+
+## Project setup (Local Development)
+For first time setup of the project, follow the steps below:
+
+### Prerequisites 
+- Node.js LTS version
+    - To install Node.js, visit [Node.js](https://nodejs.org/en/download/)
+- yarn
+    - To install yarn globally, run
+        ```bash
+        npm install -g yarn
+        ```
+
+### Installation
+1. Clone the repo
+2. Install the dependencies
+    ```bash
+    yarn
+    ```
+You're all set! 🚀
+To start the development server, follow the next section.
+
+   
+## Running the server locally
+1. Run the server
+    ```bash
+    yarn dev
+    ```
+2. To access the page, visit http://localhost:5173
+
+
+
+# (Template) React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 

@@ -1,0 +1,45 @@
+/* Base styles */
+.typography {
+    margin: 0;
+    padding: 0;
+}
+
+/* Headings */
+.h1 {
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.h2 {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.h3 {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.body {
+    font-size: 16px;
+    margin: 0;
+    padding: 0;
+}
+
+.caption {
+    font-size: 12px;
+}
+
+
+/* Font Weights */
+/*.light {*/
+/*    font-weight: 300;*/
+/*}*/
+
+/*.regular {*/
+/*    font-weight: 400;*/
+/*}*/
+
+/*.bold {*/
+/*    font-weight: 700;*/
+/*}*/

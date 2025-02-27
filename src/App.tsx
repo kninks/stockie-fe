@@ -1,15 +1,12 @@
-import { useState } from 'react'
-import './App.css'
+import './styles/globals.css'
+import './styles/theme.css'
+import HomePage from "./ui/HomePage.tsx";
 
 function App() {
-    const [count, setCount] = useState(0)
-
     return (
         <>
-            <div className="card">
-                <button onClick={() => setCount((count) => count + 1)}>
-                    count is {count}
-                </button>
+            <div>
+                <HomePage/>
             </div>
         </>
     )
