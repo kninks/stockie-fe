@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react';
 
-const ChevronUpDownIcon: React.FC<React.ComponentProps<"svg">> = (props) => {
+const ChevronUpDownIcon: React.FC<React.ComponentProps<'svg'>> = (props) => {
     return (
         <svg
             width="8"

@@ -1,7 +1,7 @@
-import React from "react";
-import "../../styles/assests/icons/ArrowSvg.module.css";
+import React from 'react';
+import '../../ui/styles/assets/icons/ArrowSvg.module.css';
 
-const ArrowSvg: React.FC<React.ComponentProps<"svg">> = (props) => {
+const ArrowSvg: React.FC<React.ComponentProps<'svg'>> = (props) => {
     return (
         <svg width="20" height="10" viewBox="0 0 20 10" fill="none" {...props}>
             <path

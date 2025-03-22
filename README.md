@@ -1,9 +1,11 @@
 # Stockie FE
 
 ## Project setup (Local Development)
+
 For first time setup of the project, follow the steps below:
 
-### Prerequisites 
+### Prerequisites
+
 - Node.js LTS version
     - To install Node.js, visit [Node.js](https://nodejs.org/en/download/)
 - yarn
@@ -13,23 +15,30 @@ For first time setup of the project, follow the steps below:
         ```
 
 ### Installation
+
 1. Clone the repo
 2. Install the dependencies
-    ```bash
-    yarn
-    ```
-You're all set! 🚀
-To start the development server, follow the next section.
+   `bash
+yarn
+`
+   You're all set! 🚀
+   To start the development server, follow the next section.
 
-   
 ## Running the server locally
+
 1. Run the server
     ```bash
     yarn dev
     ```
 2. To access the page, visit http://localhost:5173
 
+## Contributing
 
+1. Format your code before committing
+    ```bash
+    yarn prettier --write .
+    yarn lint --fix
+    ```
 
 # (Template) React + TypeScript + Vite
 
@@ -48,14 +57,14 @@ If you are developing a production application, we recommend updating the config
 
 ```js
 export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
+    languageOptions: {
+        // other options...
+        parserOptions: {
+            project: ['./tsconfig.node.json', './tsconfig.app.json'],
+            tsconfigRootDir: import.meta.dirname,
+        },
     },
-  },
-})
+});
 ```
 
 - Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
@@ -64,20 +73,20 @@ export default tseslint.config({
 
 ```js
 // eslint.config.js
-import react from 'eslint-plugin-react'
+import react from 'eslint-plugin-react';
 
 export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+    // Set the react version
+    settings: { react: { version: '18.3' } },
+    plugins: {
+        // Add the react plugin
+        react,
+    },
+    rules: {
+        // other rules...
+        // Enable its recommended rules
+        ...react.configs.recommended.rules,
+        ...react.configs['jsx-runtime'].rules,
+    },
+});
 ```

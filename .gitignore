@@ -14,14 +14,52 @@ dist-ssr
 
 # Editor directories and files
 .vscode/*
-!.vscode/extensions.json
-.idea
+.idea/
 .DS_Store
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
 *.sw?
-/.env
-!/.env.development
-!/.env.production
+
+# Environment variables
+.env*
+
+# Yarn and package manager files
+.pnp*
+!.pnp.cjs
+.pnp.loader.mjs
+/.pnp.loader.mjs
+.pnpm-debug.log
+
+
+.yarn/*
+.yarnrc.yml
+.yarn-error.log
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+
+
+# Vite
+.vite/
+
+# TypeScript build outputs
+*.tsbuildinfo
+tsconfig.tsbuildinfo
+
+# Jest & Testing related files
+coverage/
+.nyc_output/
+jest-cache/
+jest-transform-cache/
+
+# Cypress & Playwright testing
+cypress/screenshots/
+cypress/videos/
+cypress/downloads/
+playwright-report/
+test-results/
+

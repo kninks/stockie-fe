@@ -1,15 +1,15 @@
-import './styles/globals.css'
-import './styles/theme.css'
-import HomePage from "./ui/HomePage.tsx";
+import './ui/styles/globals.css';
+import './ui/styles/theme.css';
+import HomePage from './ui/HomePage.tsx';
 
 function App() {
     return (
         <>
             <div>
-                <HomePage/>
+                <HomePage />
             </div>
         </>
-    )
+    );
 }
 
-export default App
+export default App;
