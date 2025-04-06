@@ -50,6 +50,7 @@ const Industry = () => {
                                 )}
                                 <Typography
                                     sx={{
+                                        fontSize: 'var(--caption)',
                                         textAlign: 'left',
                                     }}
                                 >

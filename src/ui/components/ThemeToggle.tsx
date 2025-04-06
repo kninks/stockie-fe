@@ -2,7 +2,7 @@ import { Switch, FormControlLabel, IconButton } from '@mui/material';
 import { useTheme } from './../../core/context/ThemeContext.tsx';
 import { Brightness4, Brightness7 } from '@mui/icons-material';
 
-const ThemeToggle = () => {
+export const ThemeToggle = () => {
     const { theme, toggleTheme } = useTheme();
 
     return (
@@ -41,5 +41,3 @@ export const ThemeToggleMobile = () => {
         </IconButton>
     );
 };
-
-export default ThemeToggle;

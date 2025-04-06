@@ -4,43 +4,43 @@ import Industry from './sections/industry/Industry.tsx';
 import HowItWorks from './sections/howItWorks/HowItWorks.tsx';
 import './styles/HomePage.css';
 import NavBar from './layout/NavBar.tsx';
-import { useEffect } from 'react';
+// import { useEffect } from 'react';
 import Footer from './layout/Footer.tsx';
 
 const HomePage = () => {
-    useEffect(() => {
-        const sections = document.querySelectorAll('[data-section]');
-
-        const observer = new IntersectionObserver(
-            (entries) => {
-                entries.forEach((entry) => {
-                    const section = entry.target as HTMLElement;
-                    const rect = entry.boundingClientRect;
-                    const windowHeight = window.innerHeight;
-
-                    if (entry.intersectionRatio >= 0.3) {
-                        // ✅ Fully visible after 30% is shown
-                        section.style.setProperty('--visibility', '1');
-                    } else if (rect.top > 0 && rect.top < windowHeight) {
-                        // 🔄 Gradually fade in while entering
-                        section.style.setProperty(
-                            '--visibility',
-                            entry.intersectionRatio.toString()
-                        );
-                    } else if (rect.top >= windowHeight) {
-                        // ❌ Fade out ONLY when leaving through the bottom
-                        section.style.setProperty('--visibility', '0');
-                    }
-                    // ❌ Do nothing if leaving through the top
-                });
-            },
-            { threshold: Array.from({ length: 11 }, (_, i) => i * 0.1) } // Visibility steps from 0 to 1
-        );
-
-        sections.forEach((section) => observer.observe(section));
-
-        return () => observer.disconnect();
-    }, []);
+    // useEffect(() => {
+    //     const sections = document.querySelectorAll('[data-section]');
+    //
+    //     const observer = new IntersectionObserver(
+    //         (entries) => {
+    //             entries.forEach((entry) => {
+    //                 const section = entry.target as HTMLElement;
+    //                 const rect = entry.boundingClientRect;
+    //                 const windowHeight = window.innerHeight;
+    //
+    //                 if (entry.intersectionRatio >= 0.3) {
+    //                     // ✅ Fully visible after 30% is shown
+    //                     section.style.setProperty('--visibility', '1');
+    //                 } else if (rect.top > 0 && rect.top < windowHeight) {
+    //                     // 🔄 Gradually fade in while entering
+    //                     section.style.setProperty(
+    //                         '--visibility',
+    //                         entry.intersectionRatio.toString()
+    //                     );
+    //                 } else if (rect.top >= windowHeight) {
+    //                     // ❌ Fade out ONLY when leaving through the bottom
+    //                     section.style.setProperty('--visibility', '0');
+    //                 }
+    //                 // ❌ Do nothing if leaving through the top
+    //             });
+    //         },
+    //         { threshold: Array.from({ length: 11 }, (_, i) => i * 0.1) } // Visibility steps from 0 to 1
+    //     );
+    //
+    //     sections.forEach((section) => observer.observe(section));
+    //
+    //     return () => observer.disconnect();
+    // }, []);
 
     return (
         <>

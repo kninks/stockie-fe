@@ -13,7 +13,7 @@ import { IconButton } from '@mui/material';
 //     },
 // }
 
-const SelectLanguageDropdown: React.FC = () => {
+export const SelectLanguageDropdown: React.FC = () => {
     const { lang, setLang } = useLang();
 
     const handleLanguageChange = () => {
@@ -64,5 +64,3 @@ export const SelectLanguageDropdownMobile: React.FC = () => {
         </IconButton>
     );
 };
-
-export default SelectLanguageDropdown;

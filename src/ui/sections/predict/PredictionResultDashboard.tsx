@@ -94,6 +94,7 @@ const PredictionResultDashboard = ({ predictions }: PredictionResultDashboardPro
                                     sx={{
                                         color: 'var(--text)',
                                         paddingBottom: '0.8em',
+                                        borderBottomColor: 'var(--border-color)',
                                     }}
                                 >
                                     <TableSortLabel

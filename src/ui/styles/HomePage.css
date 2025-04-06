@@ -17,10 +17,10 @@
 }
 
 .section {
-    --visibility: 0; /* Default visibility */
-    opacity: var(--visibility); /* Opacity based on visibility */
-    transform: translateY(calc((1 - var(--visibility)) * 30px)); /* Moves up/down */
-    transition:
-        opacity 0.3s linear,
-        transform 0.3s linear; /* Smooth animation */
+    /*--visibility: 0; !* Default visibility *!*/
+    /*opacity: var(--visibility); !* Opacity based on visibility *!*/
+    /*transform: translateY(calc((1 - var(--visibility)) * 30px)); !* Moves up/down *!*/
+    /*transition:*/
+    /*    opacity 0.3s linear,*/
+    /*    transform 0.3s linear; !* Smooth animation *!*/
 }

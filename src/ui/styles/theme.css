@@ -39,6 +39,7 @@
     --white: #ffffff;
     --soft-white: #f8f9fa;
     --grey-light-100: #ecf0f1; /* Borders / Cards */
+    --grey-light-150: #e1e4e6; /* Borders */
     --grey-light-200: #c4cad0; /* Light muted text */
     --grey-medium: #9a9a9a; /* Medium muted text */
     --grey-dark-100: #25262b; /* Dark surface */
@@ -66,7 +67,7 @@
     --text-muted: var(--grey-medium);
     --text-muted-light: var(--grey-light-200);
 
-    --border-color: var(--grey-light-100);
+    --border-color: var(--grey-light-150);
     --shadow-color: var(--shadow-light);
 }
 
