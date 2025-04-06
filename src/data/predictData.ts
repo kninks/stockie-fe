@@ -1,26 +1,54 @@
-export const stockie = {
-    title: 'Stockie',
-    description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean a consectetur eros, tempor varius neque. 
-    Etiam lacus leo, euismod at diam nec, egestas finibus dui. Aliquam laoreet, risus sit amet maximus tincidunt, nibh erat mattis neque, imperdiet molestie massa nisi sit amet elit. 
-    Praesent interdum nunc quis dolor placerat, non auctor ex scelerisque. Sed fermentum porta metus.`,
-    disclaimer: `This is a disclaimer for Stockie. Lorem ipsum dolor sit amet, consectetur adipiscing elit.`,
-};
+import { SelectDropdownOptionInterface } from '../ui/components/SelectDropdown.tsx';
+import { RankedPredictionsInterface } from '../ui/sections/predict/models/predictInterface.ts';
 
-export const industryOptions = [
-    { value: 'agro_food_industry', label: 'Agro & Food Industry' },
-    { value: 'consumer_products', label: 'Consumer Products' },
-    { value: 'financials', label: 'Financials' },
-    { value: 'industrials', label: 'Industrials' },
-    { value: 'property_construction', label: 'Property Construction' },
-    { value: 'resources', label: 'Resources' },
-    { value: 'services', label: 'Services' },
-    { value: 'technology', label: 'Technology' },
+export const industryOptions: SelectDropdownOptionInterface[] = [
+    { value: 'agro', label: 'Agro & Food Industry' },
+    { value: 'consump', label: 'Consumer Products' },
+    { value: 'financial', label: 'Financials' },
+    { value: 'indus', label: 'Industrials' },
+    { value: 'propcon', label: 'Property Construction' },
+    { value: 'resource', label: 'Resources' },
+    { value: 'service', label: 'Services' },
+    { value: 'tech', label: 'Technology' },
 ];
 
-export const periodOptions = [
+export const periodOptions: SelectDropdownOptionInterface<number>[] = [
     { value: 1, label: '1 day' },
     { value: 3, label: '3 days' },
     { value: 3, label: '5 days ' },
     { value: 10, label: '10 days' },
     { value: 15, label: '15 days' },
+];
+
+export const emptyPredictions: RankedPredictionsInterface[] = [
+    {
+        rank: 1,
+        stockTicker: '',
+        closingPrice: 0,
+        predictedPrice: 0,
+    },
+    {
+        rank: 2,
+        stockTicker: '',
+        closingPrice: 0,
+        predictedPrice: 0,
+    },
+    {
+        rank: 3,
+        stockTicker: '',
+        closingPrice: 0,
+        predictedPrice: 0,
+    },
+    {
+        rank: 4,
+        stockTicker: '',
+        closingPrice: 0,
+        predictedPrice: 0,
+    },
+    {
+        rank: 5,
+        stockTicker: '',
+        closingPrice: 0,
+        predictedPrice: 0,
+    },
 ];

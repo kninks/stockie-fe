@@ -23,7 +23,7 @@ dist-ssr
 *.sw?
 
 # Environment variables
-.env*
+.env
 
 # Yarn and package manager files
 .pnp*

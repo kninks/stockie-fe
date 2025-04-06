@@ -1,0 +1,65 @@
+export interface i18nInterface {
+    // Common
+    common: {
+        loading: string;
+        error: string;
+        noData: string;
+    };
+
+    layout: {
+        home: {
+            title: string;
+            description: string;
+            disclaimer: string;
+        };
+        navbar: {
+            predict: string;
+            industry: string;
+            howToUse: string;
+            howItWorks: string;
+        };
+    };
+
+    // Predict Section
+    predictSection: {
+        selectIndustryLabel: string;
+        selectPeriodLabel: string;
+        selectIndustryPlaceholder: string;
+        selectPeriodPlaceholder: string;
+        predictButton: string;
+        predictionDashboard: {
+            title: string;
+            rank: string;
+            stock: string;
+            closingPrice: string;
+            predictedPrice: string;
+        };
+    };
+
+    // Industry Section
+    industrySection: {
+        title: string;
+        industryInfo: {
+            industryName: string;
+            industryDescription: string;
+        }[];
+    };
+
+    // HowToUse
+    howToUseSection: {
+        title: string;
+        steps: {
+            header: string;
+            description: string;
+        }[];
+    };
+
+    // How It Works Section
+    howItWorksSection: {
+        title: string;
+        manual: {
+            header: string;
+            description: string;
+        }[];
+    };
+}

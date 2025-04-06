@@ -12,19 +12,31 @@ export const useApi = <T, U = T>(
     const [error, setError] = useState<string | null>(null);
 
     const fetchData = useCallback(
-        async (body?: any) => {
+        async (body?: any): Promise<U | null> => {
             setLoading(true);
             setError(null);
             try {
-                const response: ApiResponse<T | null> = await api[method]<T>(url, body);
+                // const response: ApiResponse<T | null> = await api[method]<T>(url, body);
+
+                let response: ApiResponse<T | null>;
+
+                if (method === 'get') {
+                    response = await api.get<T>(url, { params: body });
+                } else {
+                    response = await api[method]<T>(url, body);
+                }
+
                 if (response.status === 'success') {
                     const mappedData = mapper ? mapper(response.data as T) : (response.data as U);
                     setData(mappedData ?? null);
+                    return mappedData ?? null;
                 } else {
                     setError(response.message);
+                    return null;
                 }
             } catch (err) {
                 setError('An error occurred while fetching data');
+                return null;
             } finally {
                 setLoading(false);
             }

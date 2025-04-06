@@ -1,0 +1,22 @@
+.container {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.industryCard {
+    background-color: var(--surface);
+    border-radius: 0.3rem;
+    width: 300px;
+    padding: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.stockInfoWrapper {
+    display: flex;
+    justify-content: space-between;
+}

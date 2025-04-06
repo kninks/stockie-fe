@@ -1,12 +1,12 @@
-import axios, { AxiosError, AxiosResponse } from 'axios';
+import axios, { AxiosError, AxiosRequestConfig, AxiosResponse } from 'axios';
 import { ApiResponse } from '../models/commonAPIInterface.ts';
 
-const BASE_URL: string = import.meta.env.SERVER_BASE_URL || 'http://localhost:8000/api/';
-const CLIENT_API_KEY: string = import.meta.env.CLIENT_API_KEY || 'stockie-client-secret-key';
+const BASE_URL: string = import.meta.env.VITE_SERVER_BASE_URL;
+const CLIENT_API_KEY: string = import.meta.env.VITE_CLIENT_API_KEY;
 
 const api = axios.create({
     baseURL: BASE_URL,
-    timeout: 10000, // Timeout after 10s
+    timeout: 10000,
     headers: {
         'Content-Type': 'application/json',
         'x-api-key': CLIENT_API_KEY,
@@ -19,6 +19,7 @@ api.interceptors.request.use(
         console.log('➡️ Method:', config.method?.toUpperCase());
         console.log('📝 Headers:', config.headers);
         console.log('📦 Data:', config.data);
+        console.log(' Param:', config.params);
         return config;
     },
     (error) => {
@@ -27,7 +28,6 @@ api.interceptors.request.use(
     }
 );
 
-// ✅ Response Interceptor
 api.interceptors.response.use(
     (response) => {
         console.log('📥 Axios Response:');
@@ -83,13 +83,21 @@ const handleError = (error: unknown): ApiResponse<null> => {
 const apiRequest = async <T>(
     method: 'get' | 'post' | 'put' | 'delete',
     url: string,
-    data?: any
+    // data?: any,
+    dataOrConfig?: any
 ): Promise<ApiResponse<T | null>> => {
     try {
+        // const response = await api.request<ApiResponse<T>>({
+        //     method,
+        //     url,
+        //     data,
+        // });
+
+        const isGetLike = method === 'get' || method === 'delete';
         const response = await api.request<ApiResponse<T>>({
             method,
             url,
-            data,
+            ...(isGetLike ? dataOrConfig : { data: dataOrConfig }),
         });
         return handleResponse(response);
     } catch (error) {
@@ -98,8 +106,8 @@ const apiRequest = async <T>(
 };
 
 export default {
-    get: <T>(url: string) => apiRequest<T>('get', url),
+    get: <T>(url: string, config?: AxiosRequestConfig) => apiRequest<T>('get', url, config),
     post: <T>(url: string, data: any) => apiRequest<T>('post', url, data),
     put: <T>(url: string, data: any) => apiRequest<T>('put', url, data),
-    delete: <T>(url: string) => apiRequest<T>('delete', url),
+    delete: <T>(url: string, config?: AxiosRequestConfig) => apiRequest<T>('delete', url, config),
 };

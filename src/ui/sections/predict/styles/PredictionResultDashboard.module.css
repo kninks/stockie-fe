@@ -1,0 +1,7 @@
+.predictionResultContainer {
+    align-items: flex-start;
+    min-width: 310px;
+    margin: 20px auto 0;
+    height: 20em;
+    /*background-color: var(--surface);*/
+}

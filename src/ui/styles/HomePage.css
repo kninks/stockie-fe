@@ -1,7 +1,8 @@
 .page {
     /*background: #747bff;*/
     width: 100%;
-    padding: 0 2rem;
+    padding: 5vh clamp(24px, 8vw, 100px);
+    justify-items: center;
 }
 
 .title {

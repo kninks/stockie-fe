@@ -1,0 +1,24 @@
+.manualCard {
+    margin: 1rem 0;
+    padding: 10px;
+    /*background-color: var(--surface);*/
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+.number {
+    background-color: var(--secondary);
+    color: var(--soft-white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 2rem;
+    width: 2rem;
+    border-radius: 50%;
+}
+
+.textWrapper {
+    /*padding: 0.5rem;*/
+    text-align: left;
+}

@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '../styles/components/SectionHeader.module.css';
+import { Typography } from '@mui/material';
 
 interface SectionHeaderProps {
     children: React.ReactNode;
@@ -10,12 +10,22 @@ interface SectionHeaderProps {
 const SectionHeader: React.FC<SectionHeaderProps> = ({
     children,
     align = 'center',
-    color = 'var(--text)', // Default color from theme
+    color = 'var(--text-header)',
 }) => {
     return (
-        <h2 className={styles.sectionHeader} style={{ textAlign: align, color }}>
+        <Typography
+            sx={{
+                fontSize: 'var(--header-2)',
+                fontWeight: 600,
+                letterSpacing: '0.08rem',
+                paddingBottom: '0.5rem',
+                marginBottom: '1rem',
+                textAlign: align,
+                color: color,
+            }}
+        >
             {children}
-        </h2>
+        </Typography>
     );
 };
 

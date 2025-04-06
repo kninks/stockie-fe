@@ -1,18 +1,11 @@
-import PredictSection from '../features/predict/PredictSection.tsx';
-import HowToUse from '../features/howToUse/HowToUse.tsx';
-import Industry from '../features/industry/Industry.tsx';
-import HowItWorks from '../features/howItWorks/HowItWorks.tsx';
+import PredictSection from './sections/predict/PredictSection.tsx';
+import HowToUse from './sections/howToUse/HowToUse.tsx';
+import Industry from './sections/industry/Industry.tsx';
+import HowItWorks from './sections/howItWorks/HowItWorks.tsx';
 import './styles/HomePage.css';
 import NavBar from './layout/NavBar.tsx';
-import { NavItem } from '../core/models/ui/NavBar.ts';
 import { useEffect } from 'react';
-
-const navItems: NavItem[] = [
-    { id: 'predict', label: 'Predict' },
-    { id: 'industry', label: 'Industry' },
-    { id: 'how-to-use', label: 'How to use' },
-    { id: 'how-it-works', label: 'How it works' },
-];
+import Footer from './layout/Footer.tsx';
 
 const HomePage = () => {
     useEffect(() => {
@@ -51,7 +44,7 @@ const HomePage = () => {
 
     return (
         <>
-            <NavBar navItems={navItems} />
+            <NavBar />
             <div className="page">
                 <section id="predict" className="section" data-section="true">
                     <PredictSection />
@@ -62,10 +55,11 @@ const HomePage = () => {
                 <section id="how-to-use" className="section" data-section="true">
                     <HowToUse />
                 </section>
-                <section id="how-it-works" className="section" data-section="true">
+                <section id="guide" className="section" data-section="true">
                     <HowItWorks />
                 </section>
             </div>
+            <Footer />
         </>
     );
 };

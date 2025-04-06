@@ -1,0 +1,7 @@
+.container {
+    background-color: var(--primary);
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    color: var(--soft-white);
+}

@@ -1,0 +1,85 @@
+.SelectContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    align-items: flex-start;
+}
+
+.SelectLabel {
+    font-size: 0.8rem;
+    font-family: inherit;
+    font-weight: 500;
+    color: var(--text-muted);
+    padding-left: 0.2rem;
+}
+
+.SelectWrapper {
+    box-sizing: border-box;
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+
+    width: 100%;
+
+    /*width: fit-content;*/
+
+    border: 1px solid var(--border-color);
+    border-radius: 3rem;
+    /*border-radius: 0.5rem;*/
+
+    padding-left: 0.875rem;
+    padding-right: 0.75rem;
+    cursor: pointer;
+    background-color: transparent;
+
+    @media (hover: hover) {
+        &:hover {
+            background-color: var(--border-color);
+        }
+    }
+
+    &:active {
+        background-color: var(--border-color);
+    }
+}
+
+.Select {
+    appearance: none; /* Hides default arrow */
+    -webkit-appearance: none; /* Hides for Safari */
+    -moz-appearance: none; /* Hides for Firefox */
+    border: none;
+    background: transparent;
+    height: 2.3rem;
+    margin: 0;
+    outline: 0;
+    font-family: inherit;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    color: var(--text);
+    cursor: pointer;
+    user-select: none;
+
+    /*&[data-popup-open] {*/
+    /*    background-color: var(--color-gray-100);*/
+    /*}*/
+
+    /*&:focus-visible {*/
+    /*    outline: 2px solid var(--color-blue);*/
+    /*    outline-offset: -1px;*/
+    /*}*/
+}
+
+.SelectIconAndOptionsWrapper {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.SelectIcon {
+    display: flex;
+}
+
+.SelectWrapper select:focus + .DropdownPopup {
+    display: block;
+}

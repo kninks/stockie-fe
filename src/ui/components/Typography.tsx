@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '../styles/components/Typography.module.css';
+import styles from './styles/Typography.module.css';
 
 interface TypographyProps {
     variant?: 'h1' | 'h2' | 'h3' | 'body' | 'caption';

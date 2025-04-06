@@ -8,7 +8,13 @@ const ThemeToggle = () => {
     return (
         <FormControlLabel
             control={<Switch checked={theme === 'dark'} onChange={toggleTheme} color="default" />}
-            label={theme === 'dark' ? <Brightness4 /> : <Brightness7 />}
+            label={
+                theme === 'dark' ? (
+                    <Brightness4 />
+                ) : (
+                    <Brightness7 style={{ color: 'var(--soft-white)' }} />
+                )
+            }
         />
     );
 };

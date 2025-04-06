@@ -1,9 +1,17 @@
 import { useEffect, useState } from 'react';
-import styles from '../styles/layouts/NavBar.module.css';
-import { NavbarProps } from '../../core/models/ui/NavBar.ts';
+import styles from './styles/NavBar.module.css';
 import ThemeToggle from '../components/ThemeToggle.tsx';
+import { Button } from '@mui/material';
+import { useLang } from '../../core/context/LanguageContext.tsx';
 
-const NavBar: React.FC<NavbarProps> = ({ navItems }) => {
+const NavBar: React.FC = () => {
+    const { t, lang, setLang } = useLang();
+    const navItems = [
+        { id: 'predict', label: t.layout.navbar.predict },
+        { id: 'industry', label: t.layout.navbar.industry },
+        { id: 'how-to-use', label: t.layout.navbar.howToUse },
+        { id: 'guide', label: t.layout.navbar.howItWorks },
+    ];
     const [active, setActive] = useState<string>('');
 
     const handleNavigate = (id: string) => {
@@ -36,7 +44,7 @@ const NavBar: React.FC<NavbarProps> = ({ navItems }) => {
 
     return (
         <>
-            <nav className={styles.navbar}>
+            <nav className={styles.container}>
                 {navItems.map((item) => (
                     <button
                         key={item.id}
@@ -47,6 +55,9 @@ const NavBar: React.FC<NavbarProps> = ({ navItems }) => {
                     </button>
                 ))}
                 <ThemeToggle />
+                <Button onClick={() => setLang(lang === 'en' ? 'th' : 'en')}>
+                    Switch to {lang === 'en' ? 'ไทย' : 'English'}
+                </Button>
             </nav>
         </>
     );

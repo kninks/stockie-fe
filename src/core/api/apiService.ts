@@ -1,13 +1,25 @@
-// import api from './apiInstance';
-// import { API_ENDPOINTS } from './endpoints';
-// import { PredictRequestInterface, PredictResponseInterface } from '../models/api/predictApiInterface.ts';
-// import { ApiResponse } from '../models/api/commonAPIInterface.ts';
+import { useApi } from '../viewmodels/useApi.ts';
+import { RankedPredictionsInterface } from '../../ui/sections/predict/models/predictInterface.ts';
+import { API_ENDPOINTS } from './endpoints.ts';
+import { mapInitialInfoResponse, mapPredictResponse } from '../viewmodels/mapper.ts';
+import {
+    InitialInfoResponseInterface,
+    InitialMappedData,
+    PredictResponseInterface,
+} from '../models/apiInterface.ts';
 
-// Fetch stock data
-// export const fetchStocks = async () => {
-//     return await api.get(API_ENDPOINTS.STOCKS);
-// };
-//
-// export const getPrediction = async (predictRequest: PredictRequestInterface) => {
-//     return await api.post<ApiResponse<PredictResponseInterface>>(API_ENDPOINTS.PREDICT, { predictRequest });
-// };
+export const usePrediction = () => {
+    return useApi<PredictResponseInterface, RankedPredictionsInterface[]>(
+        API_ENDPOINTS.PREDICT,
+        'get',
+        mapPredictResponse
+    );
+};
+
+export const useInitialize = () => {
+    return useApi<InitialInfoResponseInterface, InitialMappedData>(
+        API_ENDPOINTS.INFO,
+        'get',
+        mapInitialInfoResponse
+    );
+};
