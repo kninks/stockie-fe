@@ -5,9 +5,15 @@ import { createContext, ReactNode, useContext, useState } from 'react';
 type Lang = 'en' | 'th';
 const translations = { en, th };
 
-export const LanguageContext = createContext({
-    lang: 'en' as Lang,
-    setLang: (lang: Lang) => {},
+interface LanguageContextType {
+    lang: Lang;
+    setLang: (lang: Lang) => void;
+    t: typeof en;
+}
+
+export const LanguageContext = createContext<LanguageContextType>({
+    lang: 'en',
+    setLang: () => {},
     t: en,
 });
 
