@@ -5,7 +5,9 @@ export interface StockInfoInterface {
 
 export interface IndustryInfoInterface {
     industryCode: string;
-    industryName: string;
-    industryDescription: string;
+    industryNameEN: string;
+    industryNameTH: string;
+    industryDescriptionEN: string;
+    industryDescriptionTH: string;
     stocksInfo: StockInfoInterface[];
 }

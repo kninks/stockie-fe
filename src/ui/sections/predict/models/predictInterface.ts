@@ -1,6 +1,6 @@
 export interface RankedPredictionsInterface {
     rank: number;
     stockTicker: string;
-    closingPrice: number;
-    predictedPrice: number;
+    closingPrice: number | null;
+    predictedPrice: number | null;
 }

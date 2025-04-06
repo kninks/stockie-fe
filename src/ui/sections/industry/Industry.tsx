@@ -7,44 +7,69 @@ import { useInitialInfo } from '../../../core/context/InitialInfoContext.tsx';
 import { useLang } from '../../../core/context/LanguageContext.tsx';
 
 const Industry = () => {
-    const { t } = useLang();
+    const { t, lang } = useLang();
     const staticText = t.industrySection;
+
     const { initialInfo } = useInitialInfo();
     const industryInfo: IndustryInfoInterface[] = initialInfo.industryInfo;
     return (
         <>
             <SectionHeader>{staticText.title}</SectionHeader>
             <div className={styles.container}>
-                {industryInfo.map((industry) => (
-                    <div className={styles.industryCard} key={industry.industryCode}>
-                        <div>
-                            <Typography
-                                sx={{
-                                    fontSize: 'var(--header-4)',
-                                    fontWeight: 600,
-                                    textAlign: 'left',
-                                }}
-                            >
-                                {industry.industryName}
-                            </Typography>
-                            <Typography
-                                sx={{
-                                    textAlign: 'left',
-                                }}
-                            >
-                                {industry.industryDescription}
-                            </Typography>
+                {industryInfo.map((industry, index) => {
+                    const industryName =
+                        lang == 'th' ? industry.industryNameTH : industry.industryNameEN;
+                    const industrySub = lang == 'th' ? industry.industryNameEN : null;
+                    const industryDescription =
+                        lang == 'th'
+                            ? industry.industryDescriptionTH
+                            : industry.industryDescriptionEN;
+
+                    return (
+                        <div className={styles.industryCard} key={index}>
+                            <div>
+                                <Typography
+                                    sx={{
+                                        fontSize: 'var(--header-4)',
+                                        fontWeight: 600,
+                                        textAlign: 'left',
+                                    }}
+                                >
+                                    {industryName}
+                                </Typography>
+                                {industrySub && (
+                                    <Typography
+                                        sx={{
+                                            fontSize: 'var(--caption)',
+                                            textAlign: 'left',
+                                            color: 'var(--text-muted)',
+                                        }}
+                                    >
+                                        ({industrySub})
+                                    </Typography>
+                                )}
+                                <Typography
+                                    sx={{
+                                        textAlign: 'left',
+                                    }}
+                                >
+                                    {industryDescription}
+                                </Typography>
+                            </div>
+                            <div>
+                                {industry.stocksInfo.map((stock) => (
+                                    <div
+                                        className={styles.stockInfoWrapper}
+                                        key={stock.stockTicker}
+                                    >
+                                        <Typography>{stock.stockTicker}</Typography>
+                                        <Typography>{stock.stockName}</Typography>
+                                    </div>
+                                ))}
+                            </div>
                         </div>
-                        <div>
-                            {industry.stocksInfo.map((stock) => (
-                                <div className={styles.stockInfoWrapper} key={stock.stockTicker}>
-                                    <Typography>{stock.stockTicker}</Typography>
-                                    <Typography>{stock.stockName}</Typography>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                ))}
+                    );
+                })}
             </div>
         </>
     );

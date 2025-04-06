@@ -36,13 +36,9 @@ export interface i18nInterface {
         };
     };
 
-    // Industry Section
+    // Industry Section (industry info will use the fallback values)
     industrySection: {
         title: string;
-        industryInfo: {
-            industryName: string;
-            industryDescription: string;
-        }[];
     };
 
     // HowToUse

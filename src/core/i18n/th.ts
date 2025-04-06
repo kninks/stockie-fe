@@ -65,7 +65,6 @@ export const th: i18nInterface = {
     // Industry Section
     industrySection: {
         title: 'ข้อมูลอุตสาหกรรม',
-        industryInfo: [],
     },
 
     // HowToUse

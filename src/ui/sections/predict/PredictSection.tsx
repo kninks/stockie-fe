@@ -73,10 +73,14 @@ const PredictSection = () => {
                     >
                         {stockieText.title}
                     </Typography>
-                    <Typography sx={{ textAlign: 'justify' }}>{stockieText.description}</Typography>
+                    <Typography sx={{ textAlign: 'justify', fontSize: 'var(--caption)' }}>
+                        {stockieText.description}
+                    </Typography>
                     <div className={styles.disclaimerContainer}>
                         <InfoRoundedIcon />
-                        <Typography variant="body1">{stockieText.disclaimer}</Typography>
+                        <Typography sx={{ fontSize: 'var(--caption)' }}>
+                            {stockieText.disclaimer}
+                        </Typography>
                     </div>
                 </Grid2>
                 <Grid2
@@ -84,10 +88,9 @@ const PredictSection = () => {
                     direction="column"
                     spacing={2}
                     size={{ xs: 12, sm: 12, md: 10, lg: 10, xl: 8 }}
-                    sx={{ padding: '1rem' }}
                 >
                     <Grid2 container direction="row" sx={{ display: 'flex', alignItems: 'end' }}>
-                        <Grid2 size={{ xs: 7, sm: 5, md: 5, lg: 5, xl: 5 }}>
+                        <Grid2 size={{ xs: 12, sm: 7, md: 5, lg: 5, xl: 5 }}>
                             <SelectDropdown
                                 options={industryOptions}
                                 placeholder={predictText.selectIndustryPlaceholder}
@@ -97,7 +100,7 @@ const PredictSection = () => {
                                 label={predictText.selectIndustryLabel}
                             />
                         </Grid2>
-                        <Grid2 size={{ xs: 5, sm: 4, md: 4, lg: 4, xl: 4 }}>
+                        <Grid2 size={{ xs: 12, sm: 5, md: 4, lg: 4, xl: 4 }}>
                             <SelectDropdown
                                 options={periodOptions}
                                 placeholder={predictText.selectPeriodPlaceholder}
@@ -107,7 +110,7 @@ const PredictSection = () => {
                                 label={predictText.selectPeriodLabel}
                             />
                         </Grid2>
-                        <Grid2 size={{ xs: 12, sm: 3, md: 3, lg: 3, xl: 3 }}>
+                        <Grid2 size={{ xs: 12, sm: 12, md: 3, lg: 3, xl: 3 }}>
                             <PredictButton
                                 variant="contained"
                                 startIcon={<AutoAwesomeRoundedIcon />}
@@ -121,7 +124,7 @@ const PredictSection = () => {
                     </Grid2>
                     <Grid2 size="grow">
                         {error && (
-                            <Typography variant="h2" sx={{ color: 'var(--red)' }}>
+                            <Typography variant="h4" sx={{ color: 'var(--red)' }}>
                                 Error fetching prediction: {error}
                             </Typography>
                         )}

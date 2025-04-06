@@ -4,6 +4,7 @@
     --header-2: 1.8rem;
     --header-3: 1.5rem;
     --header-4: 1.2rem;
+    --caption: 0.8rem;
 
     /*define colors*/
     --blue-dusty: #5b8db8;
@@ -58,6 +59,7 @@
     /*light-theme*/
     --background: var(--soft-white);
     --surface: var(--white);
+    --color-surface: var(--info-blue-light);
 
     --text: var(--black);
     --text-heading: var(--blue-pale-dark);
@@ -74,6 +76,7 @@
 
     --background: var(--black);
     --surface: var(--grey-dark-100);
+    --color-surface: var(--info-blue-dark);
 
     --text: var(--grey-light-100);
     --text-heading: var(--blue-pale-light);

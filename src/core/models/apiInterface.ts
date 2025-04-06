@@ -35,8 +35,10 @@ export interface InitialStockInfoResponseInterface {
 
 export interface InitialIndustryInfoRequestInterface {
     industry_code: string;
-    industry_name: string;
-    industry_description: string;
+    industry_name_en: string;
+    industry_name_th: string;
+    industry_description_en: string;
+    industry_description_th: string;
     stocks_info: StockInfoSchema[];
 }
 

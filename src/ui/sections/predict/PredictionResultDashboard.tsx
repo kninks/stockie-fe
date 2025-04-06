@@ -14,12 +14,20 @@ import { RankedPredictionsInterface } from './models/predictInterface.ts';
 import { useState } from 'react';
 import { useLang } from '../../../core/context/LanguageContext.tsx';
 
+// const predictionsDummy: RankedPredictionsInterface[] = [
+//     { rank: 1, stockTicker: 'HUH', closingPrice: 175.43, predictedPrice: 189.21 },
+//     { rank: 2, stockTicker: 'HOLA', closingPrice: 234.56, predictedPrice: 256.78 },
+//     { rank: 3, stockTicker: 'ELLO', closingPrice: 145.67, predictedPrice: 167.89 },
+//     { rank: 4, stockTicker: 'COMO', closingPrice: 298.45, predictedPrice: 324.56 },
+//     { rank: 5, stockTicker: 'TACK', closingPrice: 445.67, predictedPrice: 409.9 },
+// ];
+
 const predictionsDummy: RankedPredictionsInterface[] = [
-    { rank: 1, stockTicker: 'AAPL', closingPrice: 175.43, predictedPrice: 189.21 },
-    { rank: 2, stockTicker: 'MSFT', closingPrice: 234.56, predictedPrice: 256.78 },
-    { rank: 3, stockTicker: 'GOOGL', closingPrice: 145.67, predictedPrice: 167.89 },
-    { rank: 4, stockTicker: 'META', closingPrice: 298.45, predictedPrice: 324.56 },
-    { rank: 5, stockTicker: 'NVDA', closingPrice: 445.67, predictedPrice: 409.9 },
+    { rank: 1, stockTicker: '', closingPrice: null, predictedPrice: null },
+    { rank: 2, stockTicker: '', closingPrice: null, predictedPrice: null },
+    { rank: 3, stockTicker: '', closingPrice: null, predictedPrice: null },
+    { rank: 4, stockTicker: '', closingPrice: null, predictedPrice: null },
+    { rank: 5, stockTicker: '', closingPrice: null, predictedPrice: null },
 ];
 
 interface PredictionResultDashboardProps {
@@ -77,15 +85,39 @@ const PredictionResultDashboard = ({ predictions }: PredictionResultDashboardPro
                 {staticText.title}
             </Typography>
             {predictions && predictions.length > 0 && (
-                <TableContainer>
+                <TableContainer className={styles.predictionResultTable}>
                     <Table>
                         <TableHead>
                             {tableHeaders.map((key) => (
-                                <TableCell key={key} sx={{ color: 'var(--text)' }}>
+                                <TableCell
+                                    key={key}
+                                    sx={{
+                                        color: 'var(--text)',
+                                        paddingBottom: '0.8em',
+                                    }}
+                                >
                                     <TableSortLabel
                                         active={sortKey === key}
                                         direction={sortKey === key ? sortOrder : 'asc'}
                                         onClick={() => handleSort(key as SortKey)}
+                                        sx={{
+                                            'color': 'var(--text)',
+                                            '&:hover': {
+                                                'color': 'var(--text)',
+                                                '& .MuiTableSortLabel-icon': {
+                                                    color: 'var(--text)',
+                                                },
+                                            },
+                                            '&.Mui-active': {
+                                                'color': 'var(--text)',
+                                                '& .MuiTableSortLabel-icon': {
+                                                    color: 'var(--text)',
+                                                },
+                                            },
+                                            '& .MuiTableSortLabel-icon': {
+                                                color: 'var(--text)',
+                                            },
+                                        }}
                                     >
                                         {key === 'stockTicker' && staticText.stock}
                                         {key === 'closingPrice' && staticText.closingPrice}
@@ -97,16 +129,25 @@ const PredictionResultDashboard = ({ predictions }: PredictionResultDashboardPro
                         </TableHead>
                         <TableBody>
                             {sorted.map((prediction) => {
-                                const percentage =
-                                    ((prediction.predictedPrice - prediction.closingPrice) /
-                                        prediction.closingPrice) *
-                                    100;
-                                const percentageString =
-                                    percentage > 0
-                                        ? `+${percentage.toFixed(2)}%`
-                                        : `${percentage.toFixed(2)}%`;
-                                const isIncreasing =
-                                    prediction.predictedPrice > prediction.closingPrice;
+                                const percentage: number | null =
+                                    prediction.closingPrice !== 0 &&
+                                    prediction.closingPrice !== null &&
+                                    prediction.predictedPrice !== null
+                                        ? ((prediction.predictedPrice - prediction.closingPrice) /
+                                              prediction.closingPrice) *
+                                          100
+                                        : null;
+                                const percentageString: string | null =
+                                    percentage !== null
+                                        ? percentage > 0
+                                            ? `(+${percentage.toFixed(2)}%)`
+                                            : `(${percentage.toFixed(2)}%)`
+                                        : null;
+                                const isIncreasing: boolean | null =
+                                    prediction.closingPrice !== null &&
+                                    prediction.predictedPrice !== null
+                                        ? prediction.predictedPrice > prediction.closingPrice
+                                        : null;
                                 const rankIcon =
                                     prediction.rank === 1 ? (
                                         <EmojiEventsRoundedIcon />
@@ -150,7 +191,7 @@ const PredictionResultDashboard = ({ predictions }: PredictionResultDashboardPro
                                                 paddingBottom: '0.5em',
                                             }}
                                         >
-                                            {prediction.predictedPrice} ({percentageString})
+                                            {prediction.predictedPrice} {percentageString}
                                         </TableCell>
                                     </TableRow>
                                 );

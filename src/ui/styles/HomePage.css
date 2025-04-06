@@ -1,7 +1,6 @@
 .page {
-    /*background: #747bff;*/
     width: 100%;
-    padding: 5vh clamp(24px, 8vw, 100px);
+    padding: 5vh clamp(5vw, 8vw, 100px);
     justify-items: center;
 }
 
@@ -16,56 +15,6 @@
     font-weight: 400;
     font-style: normal;
 }
-
-/*@keyframes fadeIn {*/
-/*    from {*/
-/*        opacity: 0;*/
-/*        transform: translateY(30px);*/
-/*    }*/
-/*    to {*/
-/*        opacity: 1;*/
-/*        transform: translateY(0);*/
-/*    }*/
-/*}*/
-
-/*@keyframes fadeIn {*/
-/*    from {*/
-/*        opacity: 0;*/
-/*        transform: translateY(30px);*/
-/*    }*/
-/*    to {*/
-/*        opacity: 1;*/
-/*        transform: translateY(0);*/
-/*    }*/
-/*}*/
-
-/*@keyframes fadeOut {*/
-/*    from {*/
-/*        opacity: 1;*/
-/*        transform: translateY(0);*/
-/*    }*/
-/*    to {*/
-/*        opacity: 0;*/
-/*        transform: translateY(30px);*/
-/*    }*/
-/*}*/
-
-/*!* Default hidden state *!*/
-/*.section {*/
-/*    opacity: 0;*/
-/*    transform: translateY(30px);*/
-/*    transition: opacity 0.5s ease-out, transform 0.5s ease-out;*/
-/*}*/
-
-/*!* When section enters from bottom, fade in *!*/
-/*.section.fade-in {*/
-/*    animation: fadeIn 0.8s ease-out forwards;*/
-/*}*/
-
-/*!* When section leaves through bottom, fade out *!*/
-/*.section.fade-out {*/
-/*    animation: fadeOut 0.5s ease-out forwards;*/
-/*}*/
 
 .section {
     --visibility: 0; /* Default visibility */

@@ -33,19 +33,6 @@ const HowItWorks = () => {
                     </Grid2>
                 ))}
             </Grid2>
-            {/*<div className={styles.container}>*/}
-            {/*    {staticText.manual.map((m, index) => (*/}
-            {/*        <div className={styles.card} key={index} test-id={`manual-card-${index}`}>*/}
-            {/*            <div className={styles.iconWrapper}>*/}
-            {/*                <PsychologyRoundedIcon fontSize={'large'} />*/}
-            {/*            </div>*/}
-            {/*            <Typography sx={{ fontSize: 'var(--header-4)', fontWeight: 600 }}>*/}
-            {/*                {m.header}*/}
-            {/*            </Typography>*/}
-            {/*            <Typography>{m.description}</Typography>*/}
-            {/*        </div>*/}
-            {/*    ))}*/}
-            {/*</div>*/}
         </>
     );
 };

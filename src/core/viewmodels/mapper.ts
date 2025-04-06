@@ -20,14 +20,16 @@ export const mapInitialInfoResponse = (
     const industryOptions: SelectDropdownOptionInterface[] = response.all_industries.map(
         (industry) => ({
             value: industry.industry_code,
-            label: industry.industry_name,
+            label: industry.industry_name_en,
         })
     );
 
     const industryInfo: IndustryInfoInterface[] = response.all_industries.map((industry) => ({
         industryCode: industry.industry_code,
-        industryName: industry.industry_name,
-        industryDescription: industry.industry_description,
+        industryNameEN: industry.industry_name_en,
+        industryNameTH: industry.industry_name_th,
+        industryDescriptionEN: industry.industry_description_en,
+        industryDescriptionTH: industry.industry_description_th,
         stocksInfo: industry.stocks_info.map((stock) => ({
             stockTicker: stock.stock_ticker,
             stockName: stock.stock_name,

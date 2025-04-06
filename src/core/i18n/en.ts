@@ -45,7 +45,6 @@ export const en: i18nInterface = {
     // Industry Section
     industrySection: {
         title: 'Industry Information',
-        industryInfo: [],
     },
 
     // HowToUse

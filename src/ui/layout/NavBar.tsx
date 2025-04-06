@@ -1,11 +1,79 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './styles/NavBar.module.css';
-import ThemeToggle from '../components/ThemeToggle.tsx';
-import { Button } from '@mui/material';
+import ThemeToggle, { ThemeToggleMobile } from '../components/ThemeToggle.tsx';
 import { useLang } from '../../core/context/LanguageContext.tsx';
+import SelectLanguageDropdown, {
+    SelectLanguageDropdownMobile,
+} from '../components/SelectLanguageDropdown.tsx';
+import { Typography, useMediaQuery, useTheme } from '@mui/material';
+import TempDrawer from '../components/TempDrawer.tsx';
+
+const MobileNavBar: React.FC<{
+    navItems: { id: string; label: string }[];
+    active: string;
+    onNavigate: (id: string) => void;
+}> = ({ navItems, active, onNavigate }) => {
+    return (
+        <nav className={styles.container}>
+            <div className={styles.navItemWrapperLeft}>
+                <TempDrawer navItems={navItems} active={active} onNavigate={onNavigate} />
+                {/*<Typography sx={{*/}
+                {/*    color: 'var(--soft-white)',*/}
+                {/*    letterSpacing: '0.1rem',*/}
+                {/*    fontSize: '1.2rem',*/}
+                {/*}}>*/}
+                {/*    {t.layout.home.title} Mobile*/}
+                {/*</Typography>*/}
+            </div>
+            <div className={styles.navItemWrapperRight}>
+                <ThemeToggleMobile />
+                <SelectLanguageDropdownMobile />
+            </div>
+        </nav>
+    );
+};
+
+const DesktopNavBar: React.FC<{
+    navItems: { id: string; label: string }[];
+    active: string;
+    onNavigate: (id: string) => void;
+}> = ({ navItems, active, onNavigate }) => {
+    const { t } = useLang();
+    return (
+        <nav className={styles.container}>
+            <div className={styles.navItemWrapperLeft}>
+                <Typography
+                    sx={{
+                        color: 'var(--soft-white)',
+                        letterSpacing: '0.1rem',
+                        fontSize: '1.2rem',
+                    }}
+                >
+                    {t.layout.home.title}
+                </Typography>
+            </div>
+            <div className={styles.navItemWrapperRight}>
+                {navItems.map((item) => (
+                    <button
+                        key={item.id}
+                        className={`${styles.navItem} ${active === item.id ? styles.active : ''}`}
+                        onClick={() => onNavigate(item.id)}
+                    >
+                        {item.label}
+                    </button>
+                ))}
+                <ThemeToggle />
+                <SelectLanguageDropdown />
+            </div>
+        </nav>
+    );
+};
 
 const NavBar: React.FC = () => {
-    const { t, lang, setLang } = useLang();
+    const theme = useTheme();
+    const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+
+    const { t } = useLang();
     const navItems = [
         { id: 'predict', label: t.layout.navbar.predict },
         { id: 'industry', label: t.layout.navbar.industry },
@@ -44,21 +112,11 @@ const NavBar: React.FC = () => {
 
     return (
         <>
-            <nav className={styles.container}>
-                {navItems.map((item) => (
-                    <button
-                        key={item.id}
-                        className={`${styles.navItem} ${active === item.id ? styles.active : ''}`}
-                        onClick={() => handleNavigate(item.id)}
-                    >
-                        {item.label}
-                    </button>
-                ))}
-                <ThemeToggle />
-                <Button onClick={() => setLang(lang === 'en' ? 'th' : 'en')}>
-                    Switch to {lang === 'en' ? 'ไทย' : 'English'}
-                </Button>
-            </nav>
+            {isMobile ? (
+                <MobileNavBar navItems={navItems} active={active} onNavigate={handleNavigate} />
+            ) : (
+                <DesktopNavBar navItems={navItems} active={active} onNavigate={handleNavigate} />
+            )}
         </>
     );
 };
