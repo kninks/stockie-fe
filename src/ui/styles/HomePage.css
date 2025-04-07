@@ -1,9 +1,6 @@
 .page {
     width: 100%;
     padding: 2vh clamp(5vw, 8vw, 60px);
-    /*padding-top: 2vh;*/
-    /*padding-left: clamp(1rem, 5vw, 60px);   !* safer than 100px *!*/
-    /*padding-right: clamp(1rem, 5vw, 60px);*/
     justify-items: center;
     overflow-x: scroll;
 }
@@ -29,4 +26,5 @@
     /*    transform 0.3s linear; !* Smooth animation *!*/
     width: 100%;
     margin-bottom: 5vh;
+    /*justify-items: center;*/
 }
