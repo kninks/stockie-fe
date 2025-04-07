@@ -54,7 +54,14 @@ export const SelectLanguageDropdownMobile: React.FC = () => {
     };
 
     return (
-        <IconButton onClick={handleToggle} sx={{ color: 'var(--soft-white)' }}>
+        <IconButton
+            onClick={handleToggle}
+            sx={{
+                'color': 'var(--soft-white)',
+                '&:focus': { outline: 'none' },
+                '&.Mui-focusVisible': { boxShadow: 'none' },
+            }}
+        >
             <span style={{ display: 'flex', alignItems: 'center' }}>
                 <LanguageRoundedIcon
                     onClick={handleToggle}

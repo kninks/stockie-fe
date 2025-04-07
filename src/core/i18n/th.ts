@@ -39,7 +39,7 @@ export const th: i18nInterface = {
             เธอเชือดฉันได้นิ่ม ๆ ด้วยรอยยิ้มเธอ`,
         },
         navbar: {
-            predict: 'Predict',
+            predict: 'ประเมินราคา',
             industry: 'อุตสาหกรรม',
             howToUse: 'วิธีการใช้งาน',
             howItWorks: 'เบื้องหลังการทำงาน',
@@ -92,7 +92,7 @@ export const th: i18nInterface = {
 
     // How It Works Section
     howItWorksSection: {
-        title: 'วิธีการทำงาน',
+        title: 'Tattoo color',
         manual: [
             {
                 header: 'รักแรกพบ',

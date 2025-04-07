@@ -3,8 +3,9 @@ import styles from './styles/NavBar.module.css';
 import { ThemeToggleMobile } from '../components/ThemeToggle.tsx';
 import { useLang } from '../../core/context/LanguageContext.tsx';
 import { SelectLanguageDropdownMobile } from '../components/SelectLanguageDropdown.tsx';
-import { Typography, useMediaQuery, useTheme } from '@mui/material';
+import { Button, Typography, useMediaQuery, useTheme } from '@mui/material';
 import TempDrawer from '../components/TempDrawer.tsx';
+import PlsSupportModal from '../components/PlsSupportModal.tsx';
 
 const MobileNavBar: React.FC<{
     navItems: { id: string; label: string }[];
@@ -29,30 +30,43 @@ const DesktopNavBar: React.FC<{
     active: string;
     onNavigate: (id: string) => void;
 }> = ({ navItems, active, onNavigate }) => {
-    const { t } = useLang();
     return (
         <nav className={styles.container}>
             <div className={styles.navItemWrapperLeft}>
-                <Typography
-                    sx={{
-                        color: 'var(--soft-white)',
-                        letterSpacing: '0.1rem',
-                        fontSize: '1.2rem',
-                        marginLeft: '1rem',
-                    }}
-                >
-                    {t.layout.home.title}
-                </Typography>
+                <PlsSupportModal />
             </div>
             <div className={styles.navItemWrapperRight}>
                 {navItems.map((item) => (
-                    <button
+                    <Button
                         key={item.id}
-                        className={`${styles.navItem} ${active === item.id ? styles.active : ''}`}
                         onClick={() => onNavigate(item.id)}
+                        disableRipple
+                        sx={{
+                            'color': 'var(--soft-white)',
+                            'background': 'transparent',
+                            'border': 'none',
+                            'borderRadius': 0,
+                            'cursor': 'pointer',
+                            'transition': '0.3s',
+                            'height': '100%',
+                            'margin': 0,
+                            'padding': '0 0.8rem',
+                            ...(active === item.id && { background: 'var(--primary)' }),
+                            '&:hover': { background: 'var(--primary)' },
+                            '&:focus': { outline: 'none' },
+                            '&.Mui-focusVisible': { boxShadow: 'none' },
+                        }}
                     >
-                        {item.label}
-                    </button>
+                        <Typography
+                            sx={{
+                                color: 'var(--soft-white)',
+                                fontWeight: 400,
+                                letterSpacing: '0.05rem',
+                            }}
+                        >
+                            {item.label}
+                        </Typography>
+                    </Button>
                 ))}
                 {/*<ThemeToggle />*/}
                 <ThemeToggleMobile />

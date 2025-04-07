@@ -1,7 +1,7 @@
 import PredictSection from './sections/predict/PredictSection.tsx';
-import HowToUse from './sections/howToUse/HowToUse.tsx';
-import Industry from './sections/industry/Industry.tsx';
-import HowItWorks from './sections/howItWorks/HowItWorks.tsx';
+import HowToUseSection from './sections/howToUse/HowToUseSection.tsx';
+import IndustrySection from './sections/industry/IndustrySection.tsx';
+import HowItWorksSection from './sections/howItWorks/HowItWorksSection.tsx';
 import './styles/HomePage.css';
 import NavBar from './layout/NavBar.tsx';
 // import { useEffect } from 'react';
@@ -50,13 +50,13 @@ const HomePage = () => {
                     <PredictSection />
                 </section>
                 <section id="industry" className="section" data-section="true">
-                    <Industry />
+                    <IndustrySection />
                 </section>
                 <section id="how-to-use" className="section" data-section="true">
-                    <HowToUse />
+                    <HowToUseSection />
                 </section>
                 <section id="guide" className="section" data-section="true">
-                    <HowItWorks />
+                    <HowItWorksSection />
                 </section>
             </div>
             <Footer />

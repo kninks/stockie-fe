@@ -1,12 +1,14 @@
 import { useState, useCallback } from 'react';
 import api from '../api/apiInstance.ts';
 import { ApiResponse } from '../models/commonAPIInterface.ts';
+import { useLang } from '../context/LanguageContext.tsx';
 
 export const useApi = <T, U = T>(
     url: string,
     method: 'get' | 'post' | 'put' | 'delete',
     mapper?: (data: T) => U
 ) => {
+    const { t } = useLang();
     const [data, setData] = useState<U | null>(null);
     const [loading, setLoading] = useState<boolean>(false);
     const [error, setError] = useState<string | null>(null);
@@ -35,7 +37,7 @@ export const useApi = <T, U = T>(
                     return null;
                 }
             } catch (err) {
-                setError('An error occurred while fetching data');
+                setError(t.common.error);
                 return null;
             } finally {
                 setLoading(false);

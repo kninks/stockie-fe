@@ -39,6 +39,18 @@ const TempDrawer: React.FC<TempDrawerProps> = ({
                         <ListItemButton
                             selected={active === item.id}
                             onClick={() => handleClick(item.id)}
+                            sx={
+                                {
+                                    // '&.Mui-selected': {
+                                    //     backgroundColor: 'var(--primary)',
+                                    //     color: 'var(--soft-white)',
+                                    // },
+                                    // '&:hover': {
+                                    //     backgroundColor: 'var(--primary)',
+                                    //     color: 'var(--soft-white)',
+                                    // },
+                                }
+                            }
                         >
                             <ListItemText primary={item.label} />
                         </ListItemButton>
@@ -50,10 +62,32 @@ const TempDrawer: React.FC<TempDrawerProps> = ({
 
     return (
         <>
-            <IconButton onClick={toggleDrawer(true)} sx={{ color: 'white' }}>
+            <IconButton
+                onClick={toggleDrawer(true)}
+                sx={{
+                    'color': 'white',
+                    '&:focus': { outline: 'none' },
+                    '&.Mui-focusVisible': { boxShadow: 'none' },
+                    // '&:hover': {
+                    //     backgroundColor: 'transparent',
+                    // },
+                }}
+                disableRipple
+                disableFocusRipple
+            >
                 <MenuRoundedIcon />
             </IconButton>
-            <Drawer anchor="left" open={open} onClose={toggleDrawer(false)}>
+            <Drawer
+                anchor="left"
+                open={open}
+                onClose={toggleDrawer(false)}
+                PaperProps={{
+                    sx: {
+                        bgcolor: 'var(--surface)',
+                        color: 'var(--text)',
+                    },
+                }}
+            >
                 {DrawerList}
             </Drawer>
         </>

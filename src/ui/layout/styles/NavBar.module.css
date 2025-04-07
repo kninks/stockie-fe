@@ -24,6 +24,7 @@
     justify-content: flex-end;
     align-items: center;
     height: 100%;
+    gap: 0.2rem;
 }
 
 .navItem {
@@ -39,11 +40,11 @@
 }
 
 .navItem:hover {
-    background: var(--secondary);
+    background: var(--primary);
     border: none;
 }
 
 .active {
-    background: var(--secondary);
+    background: var(--primary);
     border: none;
 }

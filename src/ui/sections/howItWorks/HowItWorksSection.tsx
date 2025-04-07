@@ -4,7 +4,7 @@ import { Grid2, Typography } from '@mui/material';
 import PsychologyRoundedIcon from '@mui/icons-material/PsychologyRounded';
 import { useLang } from '../../../core/context/LanguageContext.tsx';
 
-const HowItWorks = () => {
+const HowItWorksSection = () => {
     const { t } = useLang();
     const staticText = t.howItWorksSection;
     return (
@@ -37,4 +37,4 @@ const HowItWorks = () => {
     );
 };
 
-export default HowItWorks;
+export default HowItWorksSection;

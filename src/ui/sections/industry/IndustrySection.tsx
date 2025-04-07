@@ -6,7 +6,7 @@ import { IndustryInfoInterface } from './models/industryInterface.ts';
 import { useInitialInfo } from '../../../core/context/InitialInfoContext.tsx';
 import { useLang } from '../../../core/context/LanguageContext.tsx';
 
-const Industry = () => {
+const IndustrySection = () => {
     const { t, lang } = useLang();
     const staticText = t.industrySection;
 
@@ -76,4 +76,4 @@ const Industry = () => {
     );
 };
 
-export default Industry;
+export default IndustrySection;

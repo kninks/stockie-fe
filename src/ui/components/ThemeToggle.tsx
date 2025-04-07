@@ -32,9 +32,8 @@ export const ThemeToggleMobile = () => {
             sx={{
                 'color': 'var(--soft-white)',
                 'padding': '6px',
-                '&:hover': {
-                    backgroundColor: 'transparent',
-                },
+                '&:focus': { outline: 'none' },
+                '&.Mui-focusVisible': { boxShadow: 'none' },
             }}
         >
             {theme === 'dark' ? <Brightness4 /> : <Brightness7 />}

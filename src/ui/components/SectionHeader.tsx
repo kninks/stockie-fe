@@ -1,5 +1,5 @@
 import React from 'react';
-import { Typography } from '@mui/material';
+import { Divider, Typography } from '@mui/material';
 
 interface SectionHeaderProps {
     children: React.ReactNode;
@@ -13,19 +13,24 @@ const SectionHeader: React.FC<SectionHeaderProps> = ({
     color = 'var(--text-header)',
 }) => {
     return (
-        <Typography
+        <Divider
+            textAlign={align}
             sx={{
-                fontSize: 'var(--header-2)',
-                fontWeight: 600,
-                letterSpacing: '0.08rem',
                 paddingBottom: '0.5rem',
                 marginBottom: '1rem',
-                textAlign: align,
-                color: color,
             }}
         >
-            {children}
-        </Typography>
+            <Typography
+                sx={{
+                    fontSize: 'var(--header-2)',
+                    fontWeight: 600,
+                    letterSpacing: '0.08rem',
+                    color: color,
+                }}
+            >
+                {children}
+            </Typography>
+        </Divider>
     );
 };
 
