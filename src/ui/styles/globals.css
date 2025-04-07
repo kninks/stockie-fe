@@ -9,7 +9,7 @@ body {
     color: var(--text);
     background-color: var(--background);
     margin: 0;
-    /*display: flex;*/
+    display: flex;
     place-items: center;
     min-width: 320px;
 }
