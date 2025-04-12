@@ -8,7 +8,6 @@
 
 .manualCard {
     padding: 10px;
-    background-color: var(--surface);
     display: flex;
     flex-direction: row;
     gap: 1rem;
