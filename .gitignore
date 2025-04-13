@@ -34,7 +34,7 @@ dist-ssr
 
 
 .yarn/*
-.yarnrc.yml
+!.yarnrc.yml
 .yarn-error.log
 !.yarn/patches
 !.yarn/plugins
