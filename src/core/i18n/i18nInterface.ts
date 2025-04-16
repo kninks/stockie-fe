@@ -1,3 +1,5 @@
+import React from 'react';
+
 export interface i18nInterface {
     // Common
     common: {
@@ -9,6 +11,7 @@ export interface i18nInterface {
     layout: {
         home: {
             title: string;
+            subtitle: string;
             description: string;
             disclaimer: string;
         };
@@ -55,6 +58,7 @@ export interface i18nInterface {
         title: string;
         manual: {
             header: string;
+            icon: React.ElementType;
             description: string;
         }[];
     };

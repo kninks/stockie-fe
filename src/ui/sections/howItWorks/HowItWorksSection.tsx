@@ -1,7 +1,6 @@
 import styles from './styles/HowItWorks.module.css';
 import SectionHeader from '../../components/SectionHeader.tsx';
 import { Grid2, Typography } from '@mui/material';
-import PsychologyRoundedIcon from '@mui/icons-material/PsychologyRounded';
 import { useLang } from '../../../core/context/LanguageContext.tsx';
 
 const HowItWorksSection = () => {
@@ -16,7 +15,9 @@ const HowItWorksSection = () => {
                 spacing={4}
                 className={styles.container}
             >
-                {staticText.manual.map((m, index) => (
+                {staticText.manual.map((m, index) => {
+                    const Icon = m.icon;
+                    return (
                     <Grid2
                         className={styles.card}
                         key={index}
@@ -24,14 +25,14 @@ const HowItWorksSection = () => {
                         size={{ xs: 12, sm: 6, md: 6, lg: 3, xl: 3 }}
                     >
                         <div className={styles.iconWrapper}>
-                            <PsychologyRoundedIcon fontSize={'large'} />
+                            <Icon fontSize={'large'} />
                         </div>
                         <Typography sx={{ fontSize: 'var(--header-4)', fontWeight: 600 }}>
                             {m.header}
                         </Typography>
                         <Typography>{m.description}</Typography>
                     </Grid2>
-                ))}
+                )})}
             </Grid2>
         </>
     );

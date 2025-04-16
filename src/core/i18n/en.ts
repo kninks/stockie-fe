@@ -1,4 +1,8 @@
 import { i18nInterface } from './i18nInterface.ts';
+import SourceRoundedIcon from '@mui/icons-material/SourceRounded';
+import ChecklistRoundedIcon from '@mui/icons-material/ChecklistRounded';
+import PsychologyRoundedIcon from '@mui/icons-material/PsychologyRounded';
+import BuildRoundedIcon from '@mui/icons-material/BuildRounded';
 
 export const en: i18nInterface = {
     // Common
@@ -11,18 +15,17 @@ export const en: i18nInterface = {
     layout: {
         home: {
             title: 'Stockie',
-            description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean a 
-            consectetur eros, tempor varius neque. Etiam lacus leo, euismod at diam nec, egestas 
-            finibus dui. Aliquam laoreet, risus sit amet maximus tincidunt, nibh erat mattis neque, 
-            imperdiet molestie massa nisi sit amet elit. Praesent interdum nunc quis dolor 
-            placerat, non auctor ex scelerisque. Sed fermentum porta metus.`,
-            disclaimer: `This is a disclaimer for Stockie. Lorem ipsum dolor sit amet, consectetur adipiscing elit.`,
+            subtitle: 'Welcome to Stockie — Your Smart Assistant for Thai Stock Prediction',
+            description: `Stockie is a web-based tool that uses machine learning to help you forecast short-term stock price movements in the Thai market with over 94% accuracy. 
+            Simply select your industry and time period to get data-driven insights to support your investment decisions.
+            Perfect for new investors who want clarity, and for experienced ones looking to enhance their strategies.`,
+            disclaimer: `Stockie is intended for educational purposes only. It is not a licensed financial advisory platform and should not be relied upon as a substitute for professional financial advice.`,
         },
         navbar: {
             predict: 'Predict',
             industry: 'Industry',
-            howToUse: 'How to Use',
-            howItWorks: 'How it works',
+            howToUse: 'Usage Guide',
+            howItWorks: 'Prediction Engine',
         },
     },
 
@@ -30,15 +33,15 @@ export const en: i18nInterface = {
     predictSection: {
         selectIndustryLabel: 'Industry',
         selectPeriodLabel: 'Period',
-        selectIndustryPlaceholder: 'Select an Industry',
-        selectPeriodPlaceholder: 'Select a Period',
-        predictButton: 'Predict',
+        selectIndustryPlaceholder: 'Choose an Industry',
+        selectPeriodPlaceholder: 'Choose a Period',
+        predictButton: 'Run Prediction',
         predictionDashboard: {
-            title: 'Prediction Results',
+            title: 'Prediction Dashboard',
             rank: 'Rank',
             stock: 'Stock',
             closingPrice: 'Closing Price',
-            predictedPrice: 'Predicted Price',
+            predictedPrice: 'Forecasted Price',
         },
     },
 
@@ -49,7 +52,7 @@ export const en: i18nInterface = {
 
     // HowToUse
     howToUseSection: {
-        title: 'How to Use',
+        title: 'Usage Guide',
         steps: [
             {
                 header: 'Step 1',
@@ -72,51 +75,38 @@ export const en: i18nInterface = {
 
     // How It Works Section
     howItWorksSection: {
-        title: 'How it works',
+        title: 'Prediction Engine',
         manual: [
             {
-                header: 'Manual A',
-                description: `Description for Manual A. Lorem ipsum dolor sit amet, consectetur 
-                adipiscing elit. Donec porta felis nec malesuada mattis. Phasellus nunc lorem, 
-                aliquam non quam non, consequat condimentum leo. Vestibulum porta posuere nisl, non 
-                sollicitudin dui ullamcorper ac. Mauris pharetra ac quam ut porttitor. Praesent 
-                egestas eros sit amet sem auctor, imperdiet dignissim dolor rhoncus. Integer 
-                faucibus odio id risus dignissim bibendum. Pellentesque at eros ultrices, 
-                ultrices ligula eget, scelerisque sapien. Suspendisse id fermentum nunc, quis 
-                rutrum purus.`,
+                header: 'Data Source & Industry Grouping',
+                icon: SourceRoundedIcon,
+                description: `Stockie sources its stock data directly from Yahoo Finance. 
+                We focus exclusively on Thai stocks and organize them into 8 industries based on the classifications by the Stock Exchange of Thailand (SET). 
+                This grouping allows us to better reflect the similar patterns and trends, risk factors, and price behavior within each sector to improve prediction accuracy.`,
             },
             {
-                header: 'Manual B',
-                description: `Description for Manual A. Lorem ipsum dolor sit amet, consectetur 
-                adipiscing elit. Donec porta felis nec malesuada mattis. Phasellus nunc lorem, 
-                aliquam non quam non, consequat condimentum leo. Vestibulum porta posuere nisl, non 
-                sollicitudin dui ullamcorper ac. Mauris pharetra ac quam ut porttitor. Praesent 
-                egestas eros sit amet sem auctor, imperdiet dignissim dolor rhoncus. Integer 
-                faucibus odio id risus dignissim bibendum. Pellentesque at eros ultrices, 
-                ultrices ligula eget, scelerisque sapien. Suspendisse id fermentum nunc, quis 
-                rutrum purus.`,
+                header: 'Stock Selection Criteria',
+                icon: ChecklistRoundedIcon,
+                description: `As we prioritize relevance and liquidity to reflect the fast-changing trends in the stock market, 
+                we implement a dynamic stock selection process by selecting the top 5 stocks in each industry based on the highest trading volume. 
+                This method helps us avoid inactive stocks and ensures the model is trained and evaluated on data with consistent movement, which makes 
+                the predictions more practical and useful for short-term decision-making.`,
             },
             {
-                header: 'Manual C',
-                description: `Description for Manual A. Lorem ipsum dolor sit amet, consectetur 
-                adipiscing elit. Donec porta felis nec malesuada mattis. Phasellus nunc lorem, 
-                aliquam non quam non, consequat condimentum leo. Vestibulum porta posuere nisl, non 
-                sollicitudin dui ullamcorper ac. Mauris pharetra ac quam ut porttitor. Praesent 
-                egestas eros sit amet sem auctor, imperdiet dignissim dolor rhoncus. Integer 
-                faucibus odio id risus dignissim bibendum. Pellentesque at eros ultrices, 
-                ultrices ligula eget, scelerisque sapien. Suspendisse id fermentum nunc, quis 
-                rutrum purus.`,
+                header: 'Machine Learning Model',
+                icon: PsychologyRoundedIcon,
+                description: `Stockie uses machine learning for its ability to capture complex and price patterns that traditional 
+                methods often overlook. We apply a Long Short-Term Memory (LSTM) model, a type of neural network for time series forecasting, to 
+                predict short-term stock returns over 1, 5, 10, and 15 days. The model suggests the highest-return stock in each industry. 
+                It is trained on historical price data and optimized through hyperparameter tuning for high accuracy. Each cycle is validated using 
+                standard metrics such as Root Mean Squared Error (RMSE) before being deployed, with an accuracy of over 94%.`,
             },
             {
-                header: 'Manual D',
-                description: `Description for Manual A. Lorem ipsum dolor sit amet, consectetur 
-                adipiscing elit. Donec porta felis nec malesuada mattis. Phasellus nunc lorem, 
-                aliquam non quam non, consequat condimentum leo. Vestibulum porta posuere nisl, non 
-                sollicitudin dui ullamcorper ac. Mauris pharetra ac quam ut porttitor. Praesent 
-                egestas eros sit amet sem auctor, imperdiet dignissim dolor rhoncus. Integer 
-                faucibus odio id risus dignissim bibendum. Pellentesque at eros ultrices, 
-                ultrices ligula eget, scelerisque sapien. Suspendisse id fermentum nunc, quis 
-                rutrum purus.`,
+                header: 'Model Maintenance & Updates',
+                icon: BuildRoundedIcon,
+                description: `To maintain reliability, we monitor the model’s accuracy every 15 days. If performance drops 
+                below our benchmark, the model is retrained using the most recent data. Additionally, we update the stock lists in 
+                each industry every 15 days using the same volume-based criteria to ensure that our predictions stay current and data-driven.`,
             },
         ],
     },

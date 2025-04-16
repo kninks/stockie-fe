@@ -73,6 +73,9 @@ const PredictSection = () => {
                     >
                         {stockieText.title}
                     </Typography>
+                    <Typography sx={{ fontSize: 'var(--header-3)', fontWeight: 600, mb: '0.5rem' }}>
+                        {stockieText.subtitle}
+                    </Typography>
                     <Typography sx={{ textAlign: 'justify', fontSize: 'var(--caption)' }}>
                         {stockieText.description}
                     </Typography>

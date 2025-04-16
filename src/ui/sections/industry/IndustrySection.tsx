@@ -1,4 +1,3 @@
-import './styles/Industry.css';
 import styles from './styles/Industry.module.css';
 import SectionHeader from '../../components/SectionHeader.tsx';
 import { Typography } from '@mui/material';
@@ -64,7 +63,14 @@ const IndustrySection = () => {
                                         key={stock.stockTicker}
                                     >
                                         <Typography>{stock.stockTicker}</Typography>
-                                        <Typography>{stock.stockName}</Typography>
+                                        <Typography
+                                            sx={{
+                                                textAlign: 'right',
+                                                color: 'var(--text-muted)',
+                                            }}
+                                        >
+                                            {stock.stockName}
+                                        </Typography>
                                     </div>
                                 ))}
                             </div>
