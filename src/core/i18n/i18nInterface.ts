@@ -13,6 +13,7 @@ export interface i18nInterface {
             title: string;
             subtitle: string;
             description: string;
+            getStarted: string;
             disclaimer: string;
         };
         navbar: {
@@ -25,6 +26,7 @@ export interface i18nInterface {
 
     // Predict Section
     predictSection: {
+        title: string;
         selectIndustryLabel: string;
         selectPeriodLabel: string;
         selectIndustryPlaceholder: string;

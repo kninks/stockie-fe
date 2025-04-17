@@ -1,0 +1,23 @@
+.wrapper {
+    min-height: calc(100vh - 3.5rem);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 3vh;
+}
+
+.infoContainer {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    padding: 2rem;
+}
+
+.disclaimerContainer {
+    text-align: center;
+    padding: 2rem;
+    color: var(--text-muted);
+}

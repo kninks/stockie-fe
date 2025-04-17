@@ -1,6 +1,6 @@
 .page {
     width: 100%;
-    padding: 2vh clamp(5vw, 8vw, 60px);
+    padding: 0 clamp(5vw, 8vw, 60px);
     justify-items: center;
     overflow-x: scroll;
 }
@@ -25,6 +25,6 @@
     /*    opacity 0.3s linear,*/
     /*    transform 0.3s linear; !* Smooth animation *!*/
     width: 100%;
-    margin-bottom: 5vh;
+    margin-bottom: 8vh;
     /*justify-items: center;*/
 }

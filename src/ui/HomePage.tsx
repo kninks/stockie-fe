@@ -6,6 +6,7 @@ import './styles/HomePage.css';
 import NavBar from './layout/NavBar.tsx';
 // import { useEffect } from 'react';
 import Footer from './layout/Footer.tsx';
+import LandingSection from './sections/landing/LandingSection.tsx';
 
 const HomePage = () => {
     // useEffect(() => {
@@ -46,6 +47,7 @@ const HomePage = () => {
         <>
             <NavBar />
             <div className="page">
+                <LandingSection />
                 <section id="predict" className="section" data-section="true">
                     <PredictSection />
                 </section>

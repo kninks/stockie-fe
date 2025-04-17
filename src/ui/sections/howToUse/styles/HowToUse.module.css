@@ -9,10 +9,12 @@
 .manualCard {
     padding: 15px;
     display: flex;
-    flex-direction: row;
-    gap: 1rem;
     background: var(--surface);
     border-radius: 10px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    gap: 0.5rem;
 }
 
 .number {
@@ -21,13 +23,14 @@
     display: inline-flex;
     justify-content: center;
     align-items: center;
-    height: 2rem;
-    width: 2rem;
+    height: 3rem;
+    width: 3rem;
     line-height: 1;
     border-radius: 50%;
+    font-size: var(--header-4);
 }
 
 .textWrapper {
     /*padding: 0.5rem;*/
-    text-align: left;
+    /*text-align: left;*/
 }

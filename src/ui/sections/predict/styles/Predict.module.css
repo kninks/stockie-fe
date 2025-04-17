@@ -9,8 +9,9 @@
     color: var(--red);
 }
 
-.infoContainer {
-    /*background-color: var(--color-surface);*/
-    /*border-radius: 1.5rem;*/
+.wrapper {
+    background-color: var(--surface);
+    padding: 2rem;
+    border-radius: 1.5rem;
     /*padding: 1rem clamp(0.5rem, 0.5rem, 3rem);*/
 }

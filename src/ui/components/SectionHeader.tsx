@@ -1,5 +1,5 @@
 import React from 'react';
-import { Divider, Typography } from '@mui/material';
+import { Typography } from '@mui/material';
 
 interface SectionHeaderProps {
     children: React.ReactNode;
@@ -26,7 +26,7 @@ const SectionHeader: React.FC<SectionHeaderProps> = ({
             >
                 {children}
             </Typography>
-            <Divider sx={{ marginBottom: '1.5rem' }} />
+            {/*<Divider sx={{ marginBottom: '1.5rem' }} />*/}
         </>
     );
 };

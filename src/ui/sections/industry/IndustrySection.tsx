@@ -41,7 +41,7 @@ const IndustrySection = () => {
                                         sx={{
                                             fontSize: 'var(--caption)',
                                             textAlign: 'left',
-                                            color: 'var(--text-muted)',
+                                            // color: 'var(--text-muted)',
                                         }}
                                     >
                                         ({industrySub})
@@ -51,6 +51,7 @@ const IndustrySection = () => {
                                     sx={{
                                         fontSize: 'var(--caption)',
                                         textAlign: 'left',
+                                        color: 'var(--text-muted)',
                                     }}
                                 >
                                     {industryDescription}

@@ -4,11 +4,12 @@
     align-items: center;
     padding-right: 0.5rem;
     padding-left: 0.5rem;
-    height: 3.5rem;
+    /*padding-top: 0.5rem;*/
+    height: 4rem;
     background-color: var(--secondary);
     position: sticky;
     top: 0;
-    z-index: 10;
+    z-index: 1000;
 }
 
 .navItemWrapperLeft {

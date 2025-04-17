@@ -51,6 +51,7 @@ const DesktopNavBar: React.FC<{
                             'height': '100%',
                             'margin': 0,
                             'padding': '0 0.8rem',
+                            'textTransform': 'none',
                             ...(active === item.id && { background: 'var(--primary)' }),
                             '&:hover': { background: 'var(--primary)' },
                             '&:focus': { outline: 'none' },

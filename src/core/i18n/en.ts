@@ -15,29 +15,31 @@ export const en: i18nInterface = {
     layout: {
         home: {
             title: 'Stockie',
-            subtitle: 'Welcome to Stockie — Your Smart Assistant for Thai Stock Prediction',
+            subtitle: 'Your Smart Assistant for Thai Stock Prediction',
             description: `Stockie is a web-based tool that uses machine learning to help you forecast short-term stock price movements in the Thai market with over 94% accuracy. 
             Simply select your industry and time period to get data-driven insights to support your investment decisions.
             Perfect for new investors who want clarity, and for experienced ones looking to enhance their strategies.`,
+            getStarted: 'Get Started',
             disclaimer: `Stockie is intended for educational purposes only. It is not a licensed financial advisory platform and should not be relied upon as a substitute for professional financial advice.`,
         },
         navbar: {
-            predict: 'Predict',
+            predict: 'Prediction',
             industry: 'Industry',
-            howToUse: 'Usage Guide',
-            howItWorks: 'Prediction Engine',
+            howToUse: 'Usage',
+            howItWorks: 'About Engine',
         },
     },
 
     // Predict Section
     predictSection: {
+        title: 'Prediction',
         selectIndustryLabel: 'Industry',
         selectPeriodLabel: 'Period',
         selectIndustryPlaceholder: 'Choose an Industry',
         selectPeriodPlaceholder: 'Choose a Period',
         predictButton: 'Run Prediction',
         predictionDashboard: {
-            title: 'Prediction Dashboard',
+            title: 'Result',
             rank: 'Rank',
             stock: 'Stock',
             closingPrice: 'Closing Price',
@@ -52,20 +54,20 @@ export const en: i18nInterface = {
 
     // HowToUse
     howToUseSection: {
-        title: 'Usage Guide',
+        title: 'Usage',
         steps: [
             {
-                header: 'Step 1: Select an Industry',
+                header: 'Select an Industry',
                 description: `Choose one industry from the dropdown. The system will consider five 
                 representative stocks within the selected industry. You can view industry 
                 information and stock listings in the Industry section.`,
             },
             {
-                header: 'Step 2: Select a Prediction Period',
+                header: 'Select a Prediction Period',
                 description: `Pick the number of days ahead you want to predict. For example, "1" means tomorrow, while "5" refers to the next 5 days. The model uses historical data to forecast expected stock performance over the selected period.`,
             },
             {
-                header: 'Step 3: Click "Predict"',
+                header: 'Click "Predict"',
                 description: `After clicking the Predict button, the system ranks the five stocks 
                 in your selected industry based on predicted percentage increase. Results will be 
                 shown in the dashboard, where you can also sort the table as needed.`,
@@ -75,7 +77,7 @@ export const en: i18nInterface = {
 
     // How It Works Section
     howItWorksSection: {
-        title: 'Prediction Engine',
+        title: 'About Engine',
         manual: [
             {
                 header: 'Data Source & Industry Grouping',

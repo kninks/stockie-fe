@@ -142,8 +142,8 @@ const PredictionResultDashboard = ({ predictions }: PredictionResultDashboardPro
                                 const percentageString: string | null =
                                     percentage !== null
                                         ? percentage > 0
-                                            ? `(+${percentage.toFixed(2)}%)`
-                                            : `(${percentage.toFixed(2)}%)`
+                                            ? `(+${percentage.toFixed(4)}%)`
+                                            : `(${percentage.toFixed(4)}%)`
                                         : null;
                                 const isIncreasing: boolean | null =
                                     prediction.closingPrice !== null &&
@@ -184,7 +184,7 @@ const PredictionResultDashboard = ({ predictions }: PredictionResultDashboardPro
                                                 color: 'var(--text)',
                                             }}
                                         >
-                                            {prediction.closingPrice}
+                                            {prediction.closingPrice?.toFixed(4)}
                                         </TableCell>
                                         <TableCell
                                             sx={{
@@ -193,7 +193,8 @@ const PredictionResultDashboard = ({ predictions }: PredictionResultDashboardPro
                                                 paddingBottom: '0.5em',
                                             }}
                                         >
-                                            {prediction.predictedPrice} {percentageString}
+                                            {prediction.predictedPrice?.toFixed(4)}{' '}
+                                            {percentageString}
                                         </TableCell>
                                     </TableRow>
                                 );

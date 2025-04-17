@@ -1,6 +1,6 @@
 import styles from './styles/HowToUse.module.css';
 import SectionHeader from '../../components/SectionHeader.tsx';
-import { Typography } from '@mui/material';
+import { Grid2, Typography } from '@mui/material';
 import { useLang } from '../../../core/context/LanguageContext.tsx';
 
 const HowToUseSection = () => {
@@ -9,21 +9,41 @@ const HowToUseSection = () => {
     return (
         <>
             <SectionHeader>{staticText.title}</SectionHeader>
-            <div className={styles.manualCardsWrapper}>
+            <Grid2 container direction="row" spacing={2} className={styles.wrapper}>
                 {staticText.steps.map((step, index) => (
-                    <div className={styles.manualCard} key={index} test-id={`step-card-${index}`}>
+                    <Grid2
+                        size={{ xs: 12, sm: 12, md: 4, lg: 4, xl: 4 }}
+                        className={styles.manualCard}
+                        key={index}
+                        test-id={`step-card-${index}`}
+                    >
                         <div className={styles.number}>
-                            <Typography>{index + 1}</Typography>
-                        </div>
-                        <div className={styles.textWrapper}>
-                            <Typography sx={{ fontSize: 'var(--header-4)', fontWeight: 600 }}>
-                                {step.header}
+                            <Typography sx={{ fontSize: 'var(--header-4)' }}>
+                                {index + 1}
                             </Typography>
-                            <Typography>{step.description}</Typography>
                         </div>
-                    </div>
+                        <Typography sx={{ fontSize: 'var(--header-4)', fontWeight: 600 }}>
+                            {step.header}
+                        </Typography>
+                        <Typography>{step.description}</Typography>
+                    </Grid2>
                 ))}
-            </div>
+            </Grid2>
+            {/*<div className={styles.manualCardsWrapper}>*/}
+            {/*    {staticText.steps.map((step, index) => (*/}
+            {/*        <div className={styles.manualCard} key={index} test-id={`step-card-${index}`}>*/}
+            {/*            <div className={styles.number}>*/}
+            {/*                <Typography>{index + 1}</Typography>*/}
+            {/*            </div>*/}
+            {/*            <div className={styles.textWrapper}>*/}
+            {/*                <Typography sx={{ fontSize: 'var(--header-4)', fontWeight: 600 }}>*/}
+            {/*                    {step.header}*/}
+            {/*                </Typography>*/}
+            {/*                <Typography>{step.description}</Typography>*/}
+            {/*            </div>*/}
+            {/*        </div>*/}
+            {/*    ))}*/}
+            {/*</div>*/}
         </>
     );
 };
