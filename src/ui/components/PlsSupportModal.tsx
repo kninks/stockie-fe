@@ -1,10 +1,11 @@
 import { Button, Modal, Typography } from '@mui/material';
 import { useState } from 'react';
 import Box from '@mui/material/Box';
-import { useLang } from '../../core/context/LanguageContext.tsx';
+// import { useLang } from '../../core/context/LanguageContext.tsx';
+import SideStockie from '../assets/icons/SideStockie.tsx';
 
 const PlsSupportModal = () => {
-    const { t } = useLang();
+    // const { t } = useLang();
     const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
@@ -28,17 +29,18 @@ const PlsSupportModal = () => {
                     },
                 }}
             >
-                <Typography
-                    className="glow-text"
-                    sx={{
-                        color: 'var(--soft-white)',
-                        letterSpacing: '0.1rem',
-                        fontSize: '1.2rem',
-                        marginLeft: '1rem',
-                    }}
-                >
-                    {t.layout.home.title}
-                </Typography>
+                <SideStockie />
+                {/*<Typography*/}
+                {/*    className="glow-text"*/}
+                {/*    sx={{*/}
+                {/*        color: 'var(--soft-white)',*/}
+                {/*        letterSpacing: '0.1rem',*/}
+                {/*        fontSize: '1.2rem',*/}
+                {/*        marginLeft: '1rem',*/}
+                {/*    }}*/}
+                {/*>*/}
+                {/*    {t.layout.home.title}*/}
+                {/*</Typography>*/}
             </Button>
 
             <Modal

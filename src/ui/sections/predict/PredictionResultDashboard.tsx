@@ -93,6 +93,7 @@ const PredictionResultDashboard = ({ predictions }: PredictionResultDashboardPro
                                     key={key}
                                     sx={{
                                         color: 'var(--text)',
+                                        fontWeight: '600',
                                         paddingBottom: '0.8em',
                                         borderBottomColor: 'var(--border-color)',
                                     }}

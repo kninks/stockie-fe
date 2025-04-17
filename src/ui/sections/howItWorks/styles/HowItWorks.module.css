@@ -2,20 +2,28 @@
     display: flex;
     flex-direction: row;
     gap: 1.5rem;
-    align-items: flex-start;
+    height: 100%;
+    /*align-items: flex-start;*/
 }
 
 .card {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
+    /*align-items: flex-start;*/
+    justify-content: start;
 
-    /*background: #f9f9f9;*/
-    /*padding: 1.5rem;*/
-    /*border-radius: 10px;*/
+    background: var(--surface);
+    padding: 1.5rem;
+    border-radius: 10px;
     /*box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);*/
+}
+
+.contentWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    gap: 0.5rem;
 }
 
 .iconWrapper {
@@ -26,5 +34,5 @@
     width: 60px;
     border-radius: 50%;
     color: var(--soft-white);
-    background-color: var(--secondary);
+    background-color: var(--dark-blue);
 }

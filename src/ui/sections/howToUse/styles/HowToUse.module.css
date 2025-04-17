@@ -7,20 +7,23 @@
 }
 
 .manualCard {
-    padding: 10px;
+    padding: 15px;
     display: flex;
     flex-direction: row;
     gap: 1rem;
+    background: var(--surface);
+    border-radius: 10px;
 }
 
 .number {
-    background-color: var(--secondary);
+    background-color: var(--dark-blue);
     color: var(--soft-white);
-    display: flex;
+    display: inline-flex;
     justify-content: center;
     align-items: center;
     height: 2rem;
     width: 2rem;
+    line-height: 1;
     border-radius: 50%;
 }
 
