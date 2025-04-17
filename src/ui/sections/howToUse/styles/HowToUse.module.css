@@ -14,14 +14,13 @@
 }
 
 .number {
-    background-color: var(--dark-blue);
+    background-color: var(--secondary);
     color: var(--soft-white);
-    display: inline-flex;
+    display: flex;
     justify-content: center;
     align-items: center;
     height: 2rem;
     width: 2rem;
-    line-height: 1;
     border-radius: 50%;
 }
 

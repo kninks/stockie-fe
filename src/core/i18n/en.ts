@@ -35,7 +35,7 @@ export const en: i18nInterface = {
         selectPeriodLabel: 'Period',
         selectIndustryPlaceholder: 'Choose an Industry',
         selectPeriodPlaceholder: 'Choose a Period',
-        predictButton: 'Predict',
+        predictButton: 'Run Prediction',
         predictionDashboard: {
             title: 'Prediction Dashboard',
             rank: 'Rank',
@@ -55,20 +55,20 @@ export const en: i18nInterface = {
         title: 'Usage Guide',
         steps: [
             {
-                header: 'Step 1: Select an Industry',
-                description: `Choose one industry from the dropdown. The system will consider five 
-                representative stocks within the selected industry. You can view industry 
-                information and stock listings in the Industry section.`,
+                header: 'Step 1',
+                description: 'Description for Step 1',
             },
             {
-                header: 'Step 2: Select a Prediction Period',
-                description: `Pick the number of days ahead you want to predict. For example, "1" means tomorrow, while "5" refers to the next 5 days. The model uses historical data to forecast expected stock performance over the selected period.`,
+                header: 'Step 2',
+                description: 'Description for Step 2',
             },
             {
-                header: 'Step 3: Click "Predict"',
-                description: `After clicking the Predict button, the system ranks the five stocks 
-                in your selected industry based on predicted percentage increase. Results will be 
-                shown in the dashboard, where you can also sort the table as needed.`,
+                header: 'Step 3',
+                description: 'Description for Step 3',
+            },
+            {
+                header: 'Step 4',
+                description: 'Description for Step 4',
             },
         ],
     },

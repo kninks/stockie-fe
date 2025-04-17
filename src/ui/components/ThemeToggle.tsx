@@ -34,7 +34,7 @@ export const ThemeToggleMobile = () => {
                 'padding': '6px',
                 '&:focus': { outline: 'none' },
                 '&.Mui-focusVisible': { boxShadow: 'none' },
-                'margin': '0 0.2rem 0 0.3rem',
+                margin: '0 0.2rem 0 0.3rem',
             }}
         >
             {theme === 'dark' ? <Brightness4 /> : <Brightness7 />}

@@ -30,7 +30,6 @@
 .navItem {
     letter-spacing: 0.1rem;
     color: var(--soft-white);
-    /*color: var(--secondary);*/
     background: transparent;
     border: none;
     border-radius: 0;

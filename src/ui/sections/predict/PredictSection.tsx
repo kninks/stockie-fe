@@ -16,7 +16,7 @@ import { useLang } from '../../../core/context/LanguageContext.tsx';
 // https://mui.com/material-ui/material-icons/?theme=Rounded&query=group
 
 const PredictButton = styled(Button)({
-    backgroundColor: 'var(--accent-yellow)',
+    backgroundColor: 'var(--yellow)',
     color: 'var(--white)',
     borderRadius: '3rem',
     // borderRadius: '0.5rem',
@@ -76,10 +76,14 @@ const PredictSection = () => {
                     <Typography sx={{ fontSize: 'var(--header-3)', fontWeight: 600, mb: '0.5rem' }}>
                         {stockieText.subtitle}
                     </Typography>
-                    <Typography sx={{ textAlign: 'justify' }}>{stockieText.description}</Typography>
+                    <Typography sx={{ textAlign: 'justify', fontSize: 'var(--caption)' }}>
+                        {stockieText.description}
+                    </Typography>
                     <div className={styles.disclaimerContainer}>
                         <InfoRoundedIcon />
-                        <Typography>{stockieText.disclaimer}</Typography>
+                        <Typography sx={{ fontSize: 'var(--caption)' }}>
+                            {stockieText.disclaimer}
+                        </Typography>
                     </div>
                 </Grid2>
                 <Grid2
