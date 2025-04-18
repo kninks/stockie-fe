@@ -1,6 +1,6 @@
-import { Button, Grid2, Typography } from '@mui/material';
+import { Button, Grid2, Snackbar } from '@mui/material';
 import styles from './styles/Predict.module.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import BusinessCenterRoundedIcon from '@mui/icons-material/BusinessCenterRounded';
 import AccessTimeFilledRoundedIcon from '@mui/icons-material/AccessTimeFilledRounded';
 import AutoAwesomeRoundedIcon from '@mui/icons-material/AutoAwesomeRounded';
@@ -13,12 +13,15 @@ import { useInitialInfo } from '../../../core/context/InitialInfoContext.tsx';
 // import InfoRoundedIcon from '@mui/icons-material/InfoRounded';
 import { useLang } from '../../../core/context/LanguageContext.tsx';
 import SectionHeader from '../../components/SectionHeader.tsx';
+import { IconButton } from '@mui/material';
+import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
 
 // https://mui.com/material-ui/material-icons/?theme=Rounded&query=group
 
 const PredictSection = () => {
     const { t } = useLang();
     const predictText = t.predictSection;
+    const errorText = t.common.error;
 
     const { initialInfo } = useInitialInfo();
     const industryOptions = initialInfo.industryOptions;
@@ -28,17 +31,27 @@ const PredictSection = () => {
     const [selectedPeriod, setSelectedPeriod] = useState<number>(1);
     const { data, loading, error, fetchData } = usePrediction();
 
+    const [openErrorToast, setOpenErrorToast] = useState(true);
+
     const handlePredict = async () => {
         const requestData: PredictRequestInterface = {
             industry: selectedIndustry,
             period: selectedPeriod,
         };
         try {
+            setOpenErrorToast(false);
             await fetchData(requestData);
         } catch (error) {
             console.error('Error fetching prediction:', error);
+            setTimeout(() => setOpenErrorToast(true), 50);
         }
     };
+
+    useEffect(() => {
+        if (error) {
+            setOpenErrorToast(true);
+        }
+    }, [error]);
 
     return (
         <>
@@ -90,16 +103,18 @@ const PredictSection = () => {
                             loading={loading}
                             loadingPosition="start"
                             sx={{
-                                backgroundColor: 'var(--accent-yellow)',
-                                color: 'var(--white)',
-                                borderRadius: '3rem',
-                                // borderRadius: '0.5rem',
-                                width: '100%',
-                                height: '2.3rem',
-                                fontWeight: '600',
-                                fontSize: '1.05rem',
-                                marginTop: '0.6rem',
-                                // textTransform: "none"
+                                'backgroundColor': 'var(--accent-yellow)',
+                                'color': 'var(--white)',
+                                'borderRadius': '3rem',
+                                'width': '100%',
+                                'height': '2.3rem',
+                                'fontWeight': '600',
+                                'fontSize': '1.05rem',
+                                'marginTop': '0.6rem',
+                                '&:hover': {
+                                    backgroundColor: 'var(--sub-yellow)',
+                                },
+                                '&:focus': { outline: 'none' },
                             }}
                         >
                             {predictText.predictButton}
@@ -114,14 +129,36 @@ const PredictSection = () => {
                         borderRadius: '1.5rem',
                     }}
                 >
-                    {error && (
-                        <Typography variant="h4" sx={{ color: 'var(--red)' }}>
-                            Error fetching prediction: {error}
-                        </Typography>
-                    )}
-                    <PredictionResultDashboard predictions={data} />
+                    <PredictionResultDashboard data={data} error={error} />
                 </Grid2>
             </Grid2>
+            <Snackbar
+                open={!!error && openErrorToast}
+                autoHideDuration={4000}
+                onClose={() => {
+                    setOpenErrorToast(false);
+                }}
+                anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
+                message={errorText}
+                ContentProps={{
+                    sx: {
+                        backgroundColor: 'var(--red)',
+                        color: 'var(--white)',
+                        fontWeight: '600',
+                        justifyContent: 'center',
+                        width: 'fit-content',
+                    },
+                }}
+                action={
+                    <IconButton
+                        size="small"
+                        color="inherit"
+                        onClick={() => setOpenErrorToast(false)}
+                    >
+                        <CloseRoundedIcon fontSize="small" />
+                    </IconButton>
+                }
+            />
         </>
     );
 };

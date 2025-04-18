@@ -27,8 +27,9 @@ const LandingSection = () => {
                     </Typography>
                     <Typography sx={{ textAlign: 'center' }}>{stockieText.description}</Typography>
                     <Button
+                        variant="contained"
                         onClick={handleScrollToPredict}
-                        disableRipple
+                        disableRipple={false}
                         sx={{
                             'height': '2.3rem',
                             'backgroundColor': 'var(--primary)',
@@ -36,6 +37,8 @@ const LandingSection = () => {
                             'borderRadius': '3rem',
                             'marginTop': '1rem',
                             'padding': '1.5rem 2rem',
+                            'letterSpacing': '0.05rem',
+                            'fontWeight': '600',
                             '&:hover': {
                                 backgroundColor: 'var(--secondary)',
                             },

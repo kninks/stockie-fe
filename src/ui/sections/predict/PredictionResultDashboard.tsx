@@ -10,17 +10,12 @@ import {
     Typography,
 } from '@mui/material';
 import EmojiEventsRoundedIcon from '@mui/icons-material/EmojiEventsRounded';
-import { RankedPredictionsInterface } from './models/predictInterface.ts';
+import {
+    PredictionDashboardInterface,
+    RankedPredictionsInterface,
+} from './models/predictInterface.ts';
 import { useState } from 'react';
 import { useLang } from '../../../core/context/LanguageContext.tsx';
-
-// const predictionsDummy: RankedPredictionsInterface[] = [
-//     { rank: 1, stockTicker: 'HUH', closingPrice: 175.43, predictedPrice: 189.21 },
-//     { rank: 2, stockTicker: 'HOLA', closingPrice: 234.56, predictedPrice: 256.78 },
-//     { rank: 3, stockTicker: 'ELLO', closingPrice: 145.67, predictedPrice: 167.89 },
-//     { rank: 4, stockTicker: 'COMO', closingPrice: 298.45, predictedPrice: 324.56 },
-//     { rank: 5, stockTicker: 'TACK', closingPrice: 445.67, predictedPrice: 409.9 },
-// ];
 
 const predictionsDummy: RankedPredictionsInterface[] = [
     { rank: 1, stockTicker: '', closingPrice: null, predictedPrice: null },
@@ -31,18 +26,21 @@ const predictionsDummy: RankedPredictionsInterface[] = [
 ];
 
 interface PredictionResultDashboardProps {
-    predictions: RankedPredictionsInterface[] | null;
+    data: PredictionDashboardInterface | null;
+    error?: string | null;
 }
 
 type SortKey = keyof RankedPredictionsInterface;
 type SortOrder = 'asc' | 'desc';
 
-const PredictionResultDashboard = ({ predictions }: PredictionResultDashboardProps) => {
+const PredictionResultDashboard = ({ data, error }: PredictionResultDashboardProps) => {
     const { t } = useLang();
     const staticText = t.predictSection.predictionDashboard;
-    if (predictions === null) {
-        predictions = predictionsDummy;
-    }
+
+    const closingPriceDate = data && !error ? new Date(data.closingPriceDate) : null;
+    const predictedPriceDate = data && !error ? new Date(data.predictedPriceDate) : null;
+    const predictions = data && !error ? data.rankedPredictions : predictionsDummy;
+
     const tableHeaders = ['rank', 'stockTicker', 'closingPrice', 'predictedPrice'];
     const [sortKey, setSortKey] = useState<SortKey>('rank');
     const [sortOrder, setSortOrder] = useState<SortOrder>('asc');
@@ -122,21 +120,51 @@ const PredictionResultDashboard = ({ predictions }: PredictionResultDashboardPro
                                         }}
                                     >
                                         {key === 'stockTicker' && staticText.stock}
-                                        {key === 'closingPrice' && staticText.closingPrice}
-                                        {key === 'predictedPrice' && staticText.predictedPrice}
+                                        {key === 'closingPrice' && (
+                                            <span>
+                                                {staticText.closingPrice}{' '}
+                                                {closingPriceDate && (
+                                                    <Typography
+                                                        sx={{
+                                                            fontSize: 'var(--caption)',
+                                                            fontWeight: '600',
+                                                            color: 'var(--text-muted)',
+                                                        }}
+                                                    >
+                                                        ({closingPriceDate.toLocaleDateString()})
+                                                    </Typography>
+                                                )}
+                                            </span>
+                                        )}
+                                        {key === 'predictedPrice' && (
+                                            <span>
+                                                {staticText.predictedPrice}
+                                                {predictedPriceDate && (
+                                                    <Typography
+                                                        sx={{
+                                                            fontSize: 'var(--caption)',
+                                                            fontWeight: '600',
+                                                            color: 'var(--text-muted)',
+                                                        }}
+                                                    >
+                                                        {' '}
+                                                        ({predictedPriceDate.toLocaleDateString()})
+                                                    </Typography>
+                                                )}
+                                            </span>
+                                        )}
                                         {key === 'rank' && staticText.rank}
                                     </TableSortLabel>
                                 </TableCell>
                             ))}
                         </TableHead>
                         <TableBody>
-                            {sorted.map((prediction) => {
+                            {sorted.map((p) => {
                                 const percentage: number | null =
-                                    prediction.closingPrice !== 0 &&
-                                    prediction.closingPrice !== null &&
-                                    prediction.predictedPrice !== null
-                                        ? ((prediction.predictedPrice - prediction.closingPrice) /
-                                              prediction.closingPrice) *
+                                    p.closingPrice !== 0 &&
+                                    p.closingPrice !== null &&
+                                    p.predictedPrice !== null
+                                        ? ((p.predictedPrice - p.closingPrice) / p.closingPrice) *
                                           100
                                         : null;
                                 const percentageString: string | null =
@@ -146,19 +174,14 @@ const PredictionResultDashboard = ({ predictions }: PredictionResultDashboardPro
                                             : `(${percentage.toFixed(4)}%)`
                                         : null;
                                 const isIncreasing: boolean | null =
-                                    prediction.closingPrice !== null &&
-                                    prediction.predictedPrice !== null
-                                        ? prediction.predictedPrice > prediction.closingPrice
+                                    p.closingPrice !== null && p.predictedPrice !== null
+                                        ? p.predictedPrice > p.closingPrice
                                         : null;
                                 const rankIcon =
-                                    prediction.rank === 1 ? (
-                                        <EmojiEventsRoundedIcon />
-                                    ) : (
-                                        `#${prediction.rank}`
-                                    );
+                                    p.rank === 1 ? <EmojiEventsRoundedIcon /> : `#${p.rank}`;
 
                                 return (
-                                    <TableRow key={prediction.rank}>
+                                    <TableRow key={p.rank}>
                                         <TableCell
                                             sx={{
                                                 border: 'none',
@@ -175,7 +198,7 @@ const PredictionResultDashboard = ({ predictions }: PredictionResultDashboardPro
                                                 color: 'var(--text)',
                                             }}
                                         >
-                                            {prediction.stockTicker}
+                                            {p.stockTicker}
                                         </TableCell>
                                         <TableCell
                                             sx={{
@@ -184,7 +207,7 @@ const PredictionResultDashboard = ({ predictions }: PredictionResultDashboardPro
                                                 color: 'var(--text)',
                                             }}
                                         >
-                                            {prediction.closingPrice?.toFixed(4)}
+                                            {p.closingPrice?.toFixed(4)}
                                         </TableCell>
                                         <TableCell
                                             sx={{
@@ -193,8 +216,7 @@ const PredictionResultDashboard = ({ predictions }: PredictionResultDashboardPro
                                                 paddingBottom: '0.5em',
                                             }}
                                         >
-                                            {prediction.predictedPrice?.toFixed(4)}{' '}
-                                            {percentageString}
+                                            {p.predictedPrice?.toFixed(4)} {percentageString}
                                         </TableCell>
                                     </TableRow>
                                 );

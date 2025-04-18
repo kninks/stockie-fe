@@ -1,5 +1,5 @@
 import { useApi } from '../viewmodels/useApi.ts';
-import { RankedPredictionsInterface } from '../../ui/sections/predict/models/predictInterface.ts';
+import { PredictionDashboardInterface } from '../../ui/sections/predict/models/predictInterface.ts';
 import { API_ENDPOINTS } from './endpoints.ts';
 import { mapInitialInfoResponse, mapPredictResponse } from '../viewmodels/mapper.ts';
 import {
@@ -9,7 +9,7 @@ import {
 } from '../models/apiInterface.ts';
 
 export const usePrediction = () => {
-    return useApi<PredictResponseInterface, RankedPredictionsInterface[]>(
+    return useApi<PredictResponseInterface, PredictionDashboardInterface>(
         API_ENDPOINTS.PREDICT,
         'get',
         mapPredictResponse

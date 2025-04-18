@@ -1,4 +1,7 @@
-import { RankedPredictionsInterface } from '../../ui/sections/predict/models/predictInterface.ts';
+import {
+    PredictionDashboardInterface,
+    RankedPredictionsInterface,
+} from '../../ui/sections/predict/models/predictInterface.ts';
 import {
     InitialInfoResponseInterface,
     InitialMappedData,
@@ -44,13 +47,17 @@ export const mapInitialInfoResponse = (
 
 export const mapPredictResponse = (
     response: PredictResponseInterface
-): RankedPredictionsInterface[] => {
-    return response.ranked_predictions.map((stock) => {
-        return {
-            rank: stock.rank,
-            stockTicker: stock.ticker,
-            closingPrice: stock.closing_price,
-            predictedPrice: stock.predicted_price,
-        };
-    });
+): PredictionDashboardInterface => {
+    const ranking: RankedPredictionsInterface[] = response.ranked_predictions.map((stock) => ({
+        rank: stock.rank,
+        stockTicker: stock.ticker,
+        closingPrice: stock.closing_price,
+        predictedPrice: stock.predicted_price,
+    }));
+
+    return {
+        closingPriceDate: new Date(response.closing_price_date),
+        predictedPriceDate: new Date(response.predicted_price_date),
+        rankedPredictions: ranking,
+    };
 };

@@ -1,8 +1,8 @@
 import styles from './styles/Footer.module.css';
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import { IconButton, Link, Typography } from '@mui/material';
+import { Typography } from '@mui/material';
 // import GitHubIcon from '@mui/icons-material/GitHub';
 import Box from '@mui/material/Box';
+import { LinkedInModal } from '../components/LinkedInModal.tsx';
 
 const Footer = () => {
     return (
@@ -24,22 +24,7 @@ const Footer = () => {
                 {/*>*/}
                 {/*    <GitHubIcon />*/}
                 {/*</IconButton>*/}
-
-                <IconButton
-                    component={Link}
-                    href="https://www.linkedin.com/in/kankanit-suppataratarn/"
-                    target="_blank"
-                    rel="noopener"
-                    sx={{
-                        'color': 'var(--soft-white)',
-                        '&:hover': {
-                            backgroundColor: 'var(--grey-light-100)',
-                            color: '#0077B5',
-                        },
-                    }}
-                >
-                    <LinkedInIcon />
-                </IconButton>
+                <LinkedInModal />
             </Box>
         </footer>
     );

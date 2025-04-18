@@ -21,7 +21,7 @@ export const th: i18nInterface = {
     layout: {
         home: {
             title: 'Stockie',
-            subtitle: 'ผู้ช่วยในการคาดการณ์หุ้นไทยระยะสั้น',
+            subtitle: 'ผู้ช่วยคาดการณ์หุ้นไทยระยะสั้น',
             description: `Stockie ใช้เทคโนโลยี Machine Learning ในการคาดการณ์ผลตอบแทนหุ้นไทยระยะสั้น 
             ด้วยความแม่นยำกว่า 94% เพียงเลือกกลุ่มอุตสาหกรรมและช่วงเวลาที่ต้องการ เพื่อรับข้อมูลเชิงวิเคราะห์ที่ช่วย
             สนับสนุนการตัดสินใจลงทุนของคุณ เหมาะสำหรับทั้งนักลงทุนมือใหม่และมืออาชีพ`,
@@ -31,7 +31,7 @@ export const th: i18nInterface = {
 
         navbar: {
             predict: {
-                text: 'การคาดการณ์',
+                text: 'วิเคราะห์',
                 icon: AutoAwesomeRoundedIcon,
             },
             industry: {
@@ -43,7 +43,7 @@ export const th: i18nInterface = {
                 icon: BookRoundedIcon,
             },
             howItWorks: {
-                text: 'เบื้องหลังระบบ',
+                text: 'เบื้องหลัง',
                 icon: SettingsRoundedIcon,
             },
         },
@@ -59,6 +59,8 @@ export const th: i18nInterface = {
         predictButton: 'เริ่มวิเคราะห์',
         predictionDashboard: {
             title: 'ผลการวิเคราะห์',
+            closingPriceDate: 'ราคาปิด ณ วันที่',
+            predictedPriceDate: 'ราคาที่คาดการณ์ ณ วันที่',
             rank: 'อันดับ',
             stock: 'หุ้น',
             closingPrice: 'ราคาปิด',

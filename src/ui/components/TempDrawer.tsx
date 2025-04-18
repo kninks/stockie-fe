@@ -72,8 +72,6 @@ const TempDrawer: React.FC<TempDrawerProps> = ({
                     //     backgroundColor: 'transparent',
                     // },
                 }}
-                disableRipple
-                disableFocusRipple
             >
                 <MenuRoundedIcon />
             </IconButton>

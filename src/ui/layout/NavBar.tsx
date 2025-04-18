@@ -36,7 +36,6 @@ const MobileNavBar: React.FC<{
                         // <Button
                         //     key={item.id}
                         //     onClick={() => onNavigate(item.id)}
-                        //     disableRipple
                         //     sx={{
                         //         'color': 'var(--soft-white)',
                         //         'background': 'transparent',
@@ -57,7 +56,6 @@ const MobileNavBar: React.FC<{
                         <IconButton
                             key={item.id}
                             onClick={() => onNavigate(item.id)}
-                            disableRipple
                             sx={{
                                 'color': 'var(--soft-white)',
                                 'marginX': '0.2rem',
@@ -102,7 +100,6 @@ const DesktopNavBar: React.FC<{
                     <Button
                         key={item.id}
                         onClick={() => onNavigate(item.id)}
-                        disableRipple
                         sx={{
                             'color': 'var(--soft-white)',
                             'background': 'transparent',

@@ -15,8 +15,6 @@ export const PlsSupportModalIconStockie = () => {
         <>
             <Button
                 variant="text"
-                disableRipple
-                disableFocusRipple
                 onClick={handleOpen}
                 sx={{
                     'padding': 0,
@@ -84,9 +82,8 @@ export const PlsSupportModalSideStockie = () => {
         <>
             <Button
                 variant="text"
-                disableRipple
-                disableFocusRipple
                 onClick={handleOpen}
+                disableRipple={true}
                 sx={{
                     'padding': 0,
                     'minWidth': 0,
@@ -118,7 +115,7 @@ export const PlsSupportModalSideStockie = () => {
                         boxShadow: 24,
                         borderRadius: 2,
                         p: 4,
-                        minWidth: 300,
+                        minWidth: 250,
                         textAlign: 'center',
                     }}
                 >
@@ -133,7 +130,7 @@ export const PlsSupportModalSideStockie = () => {
                         alt="Please support me"
                         style={{
                             width: 'auto',
-                            maxWidth: 300,
+                            maxWidth: 250,
                             height: 'auto',
                         }}
                     />

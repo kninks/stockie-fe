@@ -23,7 +23,7 @@ export const en: i18nInterface = {
             title: 'Stockie',
             subtitle: 'Your Smart Assistant for Thai Stock Prediction',
             description: `Stockie uses machine learning to predict short-term stock returns in the 
-            Thai market with over *94% accuracy*. Simply select an industry and time period to get 
+            Thai market with over 94% accuracy. Simply select an industry and time period to get 
             quick and data-driven insights to support your investment decisions. 
             Perfect for both new and experienced investors.`,
             getStarted: 'Get Started',
@@ -59,6 +59,8 @@ export const en: i18nInterface = {
         predictButton: 'Run Prediction',
         predictionDashboard: {
             title: 'Result',
+            closingPriceDate: 'Closing Price from',
+            predictedPriceDate: 'Forecasted Price for',
             rank: 'Rank',
             stock: 'Stock',
             closingPrice: 'Closing Price',

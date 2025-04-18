@@ -17,6 +17,8 @@ interface StockPredictionSchema {
 }
 
 export interface PredictResponseInterface {
+    closing_price_date: Date;
+    predicted_price_date: Date;
     ranked_predictions: StockPredictionSchema[];
 }
 // ----------------------------------------------------

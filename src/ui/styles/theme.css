@@ -32,10 +32,10 @@
     --red-dark: #3e1d1a;
 
     --yellow: #faaf3f;
+    --warm-yellow: #f29b2f;
     --dark-yellow: #d9a21b;
-    --warm-yellow: #e9a944;
-    --yellow-muted: #d99e35;
-    --yellow-light: #fff4da;
+    --yellow-muted: #b78b17;
+    --yellow-light: ;
 
     --green: #4caf50;
     --green-light: #a5d6a7;
@@ -50,9 +50,11 @@
     --grey-light-150: #e1e4e6; /* Borders */
     --grey-light-200: #c4cad0; /* Light muted text */
     --grey-medium: #9a9a9a; /* Medium muted text */
-    --grey-dark-100: #25262b; /* Dark surface */
-    --grey-dark-200: #2f3136; /* Borders in dark */
-    --black: #1a1b1f;
+    --dark-surface: #2e3138; /* Dark surface */
+    --dark-border: #3a3e46; /* Borders in dark */
+    --black-text: #1a1b1f;
+    --black-bg: #1e2127;
+    /*--black-bg: #22252b;*/
     /*--black: #404756;*/
 
     --shadow-light: rgba(0, 0, 0, 0.05);
@@ -71,8 +73,9 @@
     --color-surface: var(--info-blue-light);
 
     --accent-yellow: var(--yellow);
+    --sub-yellow: var(--warm-yellow);
 
-    --text: var(--black);
+    --text: var(--black-text);
     --text-heading: var(--blue-pale-dark);
     --text-muted: var(--grey-medium);
     --text-muted-light: var(--grey-light-200);
@@ -83,19 +86,16 @@
 
 [data-theme='dark'] {
     --primary: var(--dark-blue);
-    /*--primary: ;*/
-    /*--secondary: var(--dark-blue);*/
     --secondary: var(--super-dark-blue);
 
-    /*--background: var(--black);*/
-    /*--background: #22252b;*/
-    --background: #1e2127;
+    /*--background: var(--black-text);*/
+    --background: var(--black-bg);
 
-    --surface: #2e3138;
-    /*--surface: #30343A;*/
+    --surface: var(--dark-surface);
     --color-surface: var(--info-blue-dark);
 
     --accent-yellow: var(--dark-yellow);
+    --sub-yellow: var(--yellow-muted);
 
     --text: var(--grey-light-100);
     --text-heading: var(--blue-pale-light);
@@ -103,6 +103,6 @@
     --text-muted-light: var(--grey-medium);
 
     /*--border-color: var(--grey-dark-200);*/
-    --border-color: #3a3e46;
+    --border-color: var(--dark-border);
     --shadow-color: var(--shadow-dark);
 }
