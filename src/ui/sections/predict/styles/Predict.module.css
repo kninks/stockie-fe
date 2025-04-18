@@ -11,7 +11,7 @@
 
 .wrapper {
     background-color: var(--surface);
-    padding: 2rem;
+    /*padding: 2rem;*/
     border-radius: 1.5rem;
-    /*padding: 1rem clamp(0.5rem, 0.5rem, 3rem);*/
+    padding: clamp(0.5rem, 2rem, 2rem);
 }

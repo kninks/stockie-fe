@@ -19,10 +19,10 @@ const IndustrySection = () => {
                     const industryName =
                         lang == 'th' ? industry.industryNameTH : industry.industryNameEN;
                     const industrySub = lang == 'th' ? industry.industryNameEN : null;
-                    const industryDescription =
-                        lang == 'th'
-                            ? industry.industryDescriptionTH
-                            : industry.industryDescriptionEN;
+                    // const industryDescription =
+                    //     lang == 'th'
+                    //         ? industry.industryDescriptionTH
+                    //         : industry.industryDescriptionEN;
 
                     return (
                         <div className={styles.industryCard} key={index}>
@@ -47,15 +47,15 @@ const IndustrySection = () => {
                                         ({industrySub})
                                     </Typography>
                                 )}
-                                <Typography
-                                    sx={{
-                                        fontSize: 'var(--caption)',
-                                        textAlign: 'left',
-                                        color: 'var(--text-muted)',
-                                    }}
-                                >
-                                    {industryDescription}
-                                </Typography>
+                                {/*<Typography*/}
+                                {/*    sx={{*/}
+                                {/*        fontSize: 'var(--caption)',*/}
+                                {/*        textAlign: 'left',*/}
+                                {/*        color: 'var(--text-muted)',*/}
+                                {/*    }}*/}
+                                {/*>*/}
+                                {/*    {industryDescription}*/}
+                                {/*</Typography>*/}
                             </div>
                             <div>
                                 {industry.stocksInfo.map((stock) => (

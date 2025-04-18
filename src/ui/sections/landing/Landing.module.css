@@ -4,6 +4,8 @@
     flex-direction: column;
     justify-content: space-between;
     margin-bottom: 3vh;
+    background: linear-gradient(180deg, var(--secondary) 0%, var(--background) 70%);
+    padding: 0 clamp(5vw, 8vw, 60px);
 }
 
 .infoContainer {

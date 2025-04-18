@@ -17,10 +17,22 @@ export interface i18nInterface {
             disclaimer: string;
         };
         navbar: {
-            predict: string;
-            industry: string;
-            howToUse: string;
-            howItWorks: string;
+            predict: {
+                text: string;
+                icon: React.ElementType;
+            };
+            industry: {
+                text: string;
+                icon: React.ElementType;
+            };
+            howToUse: {
+                text: string;
+                icon: React.ElementType;
+            };
+            howItWorks: {
+                text: string;
+                icon: React.ElementType;
+            };
         };
     };
 

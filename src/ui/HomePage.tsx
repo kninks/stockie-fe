@@ -46,8 +46,8 @@ const HomePage = () => {
     return (
         <>
             <NavBar />
+            <LandingSection />
             <div className="page">
-                <LandingSection />
                 <section id="predict" className="section" data-section="true">
                     <PredictSection />
                 </section>

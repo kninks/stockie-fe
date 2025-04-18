@@ -2,18 +2,6 @@ import { Button, Typography } from '@mui/material';
 import styles from './Landing.module.css';
 import { useLang } from '../../../core/context/LanguageContext.tsx';
 
-// const GetStartButton = styled(Button)({
-//     backgroundColor: 'var(--accent-yellow)',
-//     color: 'var(--white)',
-//     borderRadius: '3rem',
-//     // borderRadius: '0.5rem',
-//     width: '100%',
-//     height: '2.3rem',
-//     fontWeight: '600',
-//     fontSize: '1.15rem',
-//     // textTransform: "none"
-// });
-
 const LandingSection = () => {
     const { t } = useLang();
     const stockieText = t.layout.home;
@@ -40,6 +28,7 @@ const LandingSection = () => {
                     <Typography sx={{ textAlign: 'center' }}>{stockieText.description}</Typography>
                     <Button
                         onClick={handleScrollToPredict}
+                        disableRipple
                         sx={{
                             'height': '2.3rem',
                             'backgroundColor': 'var(--primary)',
@@ -50,6 +39,7 @@ const LandingSection = () => {
                             '&:hover': {
                                 backgroundColor: 'var(--secondary)',
                             },
+                            '&:focus': { outline: 'none' },
                         }}
                     >
                         {stockieText.getStarted}

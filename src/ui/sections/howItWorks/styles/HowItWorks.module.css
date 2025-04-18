@@ -1,9 +1,10 @@
 .container {
     display: flex;
     flex-direction: row;
-    gap: 1.5rem;
+    gap: 1rem;
     height: 100%;
     /*align-items: flex-start;*/
+    padding: 0;
 }
 
 .card {
@@ -13,8 +14,9 @@
     justify-content: start;
 
     background: var(--surface);
-    padding: 1.5rem;
+    padding: 1.2rem;
     border-radius: 10px;
+    gap: 1rem;
     /*box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);*/
 }
 
@@ -27,12 +29,20 @@
 }
 
 .iconWrapper {
-    display: flex;
-    align-items: center;
+    /*display: flex;*/
+    /*align-items: center;*/
+    /*justify-content: center;*/
+
+    /*border-radius: 50%;*/
+
+    background-color: var(--dark-blue);
+    color: var(--soft-white);
+    display: inline-flex;
     justify-content: center;
+    align-items: center;
     height: 60px;
     width: 60px;
+    line-height: 1;
     border-radius: 50%;
-    color: var(--soft-white);
-    background-color: var(--dark-blue);
+    font-size: var(--header-4);
 }

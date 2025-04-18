@@ -3,21 +3,83 @@ import styles from './styles/NavBar.module.css';
 import { ThemeToggleMobile } from '../components/ThemeToggle.tsx';
 import { useLang } from '../../core/context/LanguageContext.tsx';
 import { SelectLanguageDropdownMobile } from '../components/SelectLanguageDropdown.tsx';
-import { Button, Typography, useMediaQuery, useTheme } from '@mui/material';
-import TempDrawer from '../components/TempDrawer.tsx';
-import PlsSupportModal from '../components/PlsSupportModal.tsx';
+import { Button, Divider, IconButton, Typography, useMediaQuery, useTheme } from '@mui/material';
+// import TempDrawer from '../components/TempDrawer.tsx';
+import {
+    PlsSupportModalIconStockie,
+    PlsSupportModalSideStockie,
+} from '../components/PlsSupportModal.tsx';
 
 const MobileNavBar: React.FC<{
-    navItems: { id: string; label: string }[];
+    navItems: { id: string; label: { text: string; icon: React.ElementType } }[];
     active: string;
     onNavigate: (id: string) => void;
 }> = ({ navItems, active, onNavigate }) => {
     return (
+        // <nav className={styles.container}>
+        //     <div className={styles.navItemWrapperLeft}>
+        //         <TempDrawer navItems={navItems} active={active} onNavigate={onNavigate} />
+        //     </div>
+        //     <div className={styles.navItemWrapperRight}>
+        //         <ThemeToggleMobile />
+        //         <SelectLanguageDropdownMobile />
+        //     </div>
+        // </nav>
         <nav className={styles.container}>
             <div className={styles.navItemWrapperLeft}>
-                <TempDrawer navItems={navItems} active={active} onNavigate={onNavigate} />
+                <PlsSupportModalIconStockie />
             </div>
             <div className={styles.navItemWrapperRight}>
+                {navItems.map((item) => {
+                    const Icon = item.label.icon;
+                    return (
+                        // <Button
+                        //     key={item.id}
+                        //     onClick={() => onNavigate(item.id)}
+                        //     disableRipple
+                        //     sx={{
+                        //         'color': 'var(--soft-white)',
+                        //         'background': 'transparent',
+                        //         'border': 'none',
+                        //         'borderRadius': 0,
+                        //         'cursor': 'pointer',
+                        //         'transition': '0.3s',
+                        //         'height': '100%',
+                        //         'margin': 0,
+                        //         'padding': '0 0.8rem',
+                        //         'textTransform': 'none',
+                        //         ...(active === item.id && { background: 'var(--primary)' }),
+                        //         '&:hover': { background: 'var(--primary)' },
+                        //         '&:focus': { outline: 'none' },
+                        //         '&.Mui-focusVisible': { boxShadow: 'none' },
+                        //     }}
+                        // >
+                        <IconButton
+                            key={item.id}
+                            onClick={() => onNavigate(item.id)}
+                            disableRipple
+                            sx={{
+                                'color': 'var(--soft-white)',
+                                'marginX': '0.2rem',
+                                'letterSpacing': '0.05rem',
+                                'transition': '0.3s',
+                                ...(active === item.id && { background: 'var(--primary)' }),
+                                '&:hover': { background: 'var(--primary)' },
+                                '&:focus': { outline: 'none' },
+                            }}
+                        >
+                            <Icon />
+                        </IconButton>
+                    );
+                })}
+                <Divider
+                    style={{
+                        width: '1.5px',
+                        backgroundColor: 'var(--soft-white)',
+                        height: '2.5rem',
+                        margin: '0 0.5rem',
+                    }}
+                />
                 <ThemeToggleMobile />
                 <SelectLanguageDropdownMobile />
             </div>
@@ -26,14 +88,14 @@ const MobileNavBar: React.FC<{
 };
 
 const DesktopNavBar: React.FC<{
-    navItems: { id: string; label: string }[];
+    navItems: { id: string; label: { text: string; icon: React.ElementType } }[];
     active: string;
     onNavigate: (id: string) => void;
 }> = ({ navItems, active, onNavigate }) => {
     return (
         <nav className={styles.container}>
             <div className={styles.navItemWrapperLeft}>
-                <PlsSupportModal />
+                <PlsSupportModalSideStockie />
             </div>
             <div className={styles.navItemWrapperRight}>
                 {navItems.map((item) => (
@@ -65,7 +127,7 @@ const DesktopNavBar: React.FC<{
                                 letterSpacing: '0.05rem',
                             }}
                         >
-                            {item.label}
+                            {item.label.text}
                         </Typography>
                     </Button>
                 ))}
@@ -80,7 +142,7 @@ const DesktopNavBar: React.FC<{
 
 const NavBar: React.FC = () => {
     const theme = useTheme();
-    const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+    const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
     const { t } = useLang();
     const navItems = [
@@ -94,6 +156,12 @@ const NavBar: React.FC = () => {
     const handleNavigate = (id: string) => {
         // setActive(id);
         document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+        // const element = document.getElementById(id);
+        // if (element) {
+        //     const yOffset = -80; // adjust based on your navbar height
+        //     const y = element.getBoundingClientRect().top + window.scrollY + yOffset;
+        //     window.scrollTo({ top: y, behavior: 'smooth' });
+        // }
     };
 
     useEffect(() => {
@@ -122,6 +190,7 @@ const NavBar: React.FC = () => {
     return (
         <>
             {isMobile ? (
+                // <DesktopNavBar navItems={navItems} active={active} onNavigate={handleNavigate} />
                 <MobileNavBar navItems={navItems} active={active} onNavigate={handleNavigate} />
             ) : (
                 <DesktopNavBar navItems={navItems} active={active} onNavigate={handleNavigate} />

@@ -88,8 +88,8 @@
     --secondary: var(--super-dark-blue);
 
     /*--background: var(--black);*/
-    --background: #22252b;
-    /*--background: #1E2127;*/
+    /*--background: #22252b;*/
+    --background: #1e2127;
 
     --surface: #2e3138;
     /*--surface: #30343A;*/
@@ -102,6 +102,7 @@
     --text-muted: var(--grey-light-200);
     --text-muted-light: var(--grey-medium);
 
-    --border-color: var(--grey-dark-200);
+    /*--border-color: var(--grey-dark-200);*/
+    --border-color: #3a3e46;
     --shadow-color: var(--shadow-dark);
 }

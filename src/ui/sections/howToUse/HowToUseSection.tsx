@@ -12,7 +12,7 @@ const HowToUseSection = () => {
             <Grid2 container direction="row" spacing={2} className={styles.wrapper}>
                 {staticText.steps.map((step, index) => (
                     <Grid2
-                        size={{ xs: 12, sm: 12, md: 4, lg: 4, xl: 4 }}
+                        size={{ xs: 12, sm: 4, md: 4, lg: 4, xl: 4 }}
                         className={styles.manualCard}
                         key={index}
                         test-id={`step-card-${index}`}
