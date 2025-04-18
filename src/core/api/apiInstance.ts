@@ -3,6 +3,7 @@ import { ApiResponse } from '../models/commonAPIInterface.ts';
 
 const BASE_URL: string = import.meta.env.VITE_SERVER_BASE_URL;
 const CLIENT_API_KEY: string = import.meta.env.VITE_CLIENT_API_KEY;
+const isDev = import.meta.env.MODE === 'development';
 
 const api = axios.create({
     baseURL: BASE_URL,
@@ -13,38 +14,40 @@ const api = axios.create({
     },
 });
 
-api.interceptors.request.use(
-    (config) => {
-        console.log('📤 Axios Request:');
-        console.log('➡️ Method:', config.method?.toUpperCase());
-        console.log('📝 Headers:', config.headers);
-        console.log('📦 Data:', config.data);
-        console.log(' Param:', config.params);
-        return config;
-    },
-    (error) => {
-        console.error('❌ Request Error:', error);
-        return Promise.reject(error);
-    }
-);
-
-api.interceptors.response.use(
-    (response) => {
-        console.log('📥 Axios Response:');
-        console.log('✅ Status:', response.status);
-        console.log('🌎 URL:', response.config.url);
-        console.log('📦 Data:', response.data);
-        return response;
-    },
-    (error) => {
-        console.error('❌ Response Error:', error);
-        if (error.response) {
-            console.error('🔴 Status:', error.response.status);
-            console.error('📦 Error Data:', error.response.data);
+if (isDev) {
+    api.interceptors.request.use(
+        (config) => {
+            console.log('📤 Axios Request:');
+            console.log('➡️ Method:', config.method?.toUpperCase());
+            console.log('📝 Headers:', config.headers);
+            console.log('📦 Data:', config.data);
+            console.log('🧭 Params:', config.params);
+            return config;
+        },
+        (error) => {
+            console.error('❌ Request Error:', error);
+            return Promise.reject(error);
         }
-        return Promise.reject(error);
-    }
-);
+    );
+
+    api.interceptors.response.use(
+        (response) => {
+            console.log('📥 Axios Response:');
+            console.log('✅ Status:', response.status);
+            console.log('🌎 URL:', response.config.url);
+            console.log('📦 Data:', response.data);
+            return response;
+        },
+        (error) => {
+            console.error('❌ Response Error:', error);
+            if (error.response) {
+                console.error('🔴 Status:', error.response.status);
+                console.error('📦 Error Data:', error.response.data);
+            }
+            return Promise.reject(error);
+        }
+    );
+}
 
 const handleResponse = <T>(response: AxiosResponse<ApiResponse<T>>): ApiResponse<T | null> => {
     if (response.data.status === 'success') {
@@ -83,16 +86,9 @@ const handleError = (error: unknown): ApiResponse<null> => {
 const apiRequest = async <T>(
     method: 'get' | 'post' | 'put' | 'delete',
     url: string,
-    // data?: any,
     dataOrConfig?: any
 ): Promise<ApiResponse<T | null>> => {
     try {
-        // const response = await api.request<ApiResponse<T>>({
-        //     method,
-        //     url,
-        //     data,
-        // });
-
         const isGetLike = method === 'get' || method === 'delete';
         const response = await api.request<ApiResponse<T>>({
             method,

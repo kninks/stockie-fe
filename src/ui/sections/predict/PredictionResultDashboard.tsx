@@ -37,12 +37,24 @@ const PredictionResultDashboard = ({ data, error }: PredictionResultDashboardPro
     const { t } = useLang();
     const staticText = t.predictSection.predictionDashboard;
 
-    const closingPriceDate = data && !error ? new Date(data.closingPriceDate) : null;
-    const predictedPriceDate = data && !error ? new Date(data.predictedPriceDate) : null;
-    console.log('closingPriceDate');
-    console.log(closingPriceDate);
-    console.log('predictedPriceDate');
-    console.log(predictedPriceDate);
+    const formatDate = (d: string | Date | null): string | null => {
+        if (!d) return null;
+        try {
+            const dateObj = typeof d === 'string' ? new Date(d) : d;
+            if (isNaN(dateObj.getTime())) return null;
+
+            const day = dateObj.getDate().toString().padStart(2, '0');
+            const month = dateObj.toLocaleString('en-US', { month: 'short' });
+            const year = dateObj.getFullYear();
+
+            return `${day} ${month} ${year}`;
+        } catch (e) {
+            return null;
+        }
+    };
+
+    const closingPriceDate = data && !error ? formatDate(data.closingPriceDate) : null;
+    const predictedPriceDate = data && !error ? formatDate(data.predictedPriceDate) : null;
     const predictions = data && !error ? data.rankedPredictions : predictionsDummy;
 
     const tableHeaders = ['rank', 'stockTicker', 'closingPrice', 'predictedPrice'];
@@ -135,7 +147,7 @@ const PredictionResultDashboard = ({ data, error }: PredictionResultDashboardPro
                                                             color: 'var(--text-muted)',
                                                         }}
                                                     >
-                                                        ({closingPriceDate.toLocaleDateString()})
+                                                        ({closingPriceDate})
                                                     </Typography>
                                                 )}
                                             </span>
@@ -152,7 +164,7 @@ const PredictionResultDashboard = ({ data, error }: PredictionResultDashboardPro
                                                         }}
                                                     >
                                                         {' '}
-                                                        ({predictedPriceDate.toLocaleDateString()})
+                                                        ({predictedPriceDate})
                                                     </Typography>
                                                 )}
                                             </span>
