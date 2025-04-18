@@ -3,7 +3,7 @@ import { i18nInterface } from './i18nInterface.ts';
 import AutoAwesomeRoundedIcon from '@mui/icons-material/AutoAwesomeRounded';
 import BusinessCenterRoundedIcon from '@mui/icons-material/BusinessCenterRounded';
 import BookRoundedIcon from '@mui/icons-material/BookRounded';
-import SettingsRoundedIcon from '@mui/icons-material/SettingsRounded';
+import BatchPredictionRoundedIcon from '@mui/icons-material/BatchPredictionRounded';
 
 import SourceRoundedIcon from '@mui/icons-material/SourceRounded';
 import ChecklistRoundedIcon from '@mui/icons-material/ChecklistRounded';
@@ -34,17 +34,17 @@ export const th: i18nInterface = {
                 text: 'วิเคราะห์',
                 icon: AutoAwesomeRoundedIcon,
             },
-            industry: {
-                text: 'กลุ่มอุตสาหกรรม',
-                icon: BusinessCenterRoundedIcon,
-            },
             howToUse: {
                 text: 'คู่มือการใช้งาน',
                 icon: BookRoundedIcon,
             },
+            industry: {
+                text: 'กลุ่มอุตสาหกรรม',
+                icon: BusinessCenterRoundedIcon,
+            },
             howItWorks: {
                 text: 'เบื้องหลัง',
-                icon: SettingsRoundedIcon,
+                icon: BatchPredictionRoundedIcon,
             },
         },
     },
@@ -66,28 +66,28 @@ export const th: i18nInterface = {
         },
     },
 
-    // Industry Section
-    industrySection: {
-        title: 'ข้อมูลกลุ่มอุตสาหกรรม',
-    },
-
     // HowToUse
     howToUseSection: {
         title: 'วิธีการใช้งาน',
         steps: [
             {
                 header: 'เลือกกลุ่มอุตสาหกรรม',
-                description: `เลือกกลุ่มจากเมนูดรอปดาวน์ ระบบจะวิเคราะห์หุ้นตัวแทน 5 ตัวในกลุ่มนั้น โดยดูข้อมูลเพิ่มเติมได้ในหน้ากลุ่มอุตสาหกรรม`,
+                description: `เลือกกลุ่มจากเมนูดรอปดาวน์ หุ้นตัวแทน 5 ตัวในกลุ่ทมี่เลือกจะถูกวิเคราะห์ โดยดูข้อมูลเพิ่มเติมได้ในหน้ากลุ่มอุตสาหกรรม`,
             },
             {
                 header: 'เลือกช่วงเวลาการพยากรณ์',
-                description: `เลือกจำนวนวันที่ต้องการพยากรณ์ เช่น “1 วัน” หรือ “5 วัน”`,
+                description: `เลือกจำนวนวันที่ต้องการพยากรณ์ เช่น 1 วัน หรือ 5 วัน`,
             },
             {
                 header: 'คลิก "วิเคราะห์"',
                 description: `หุ้นจะถูกจัดอันดับตามเปอร์เซ็นต์การเพิ่มขึ้นของราคาที่คาดการณ์ พร้อมแสดงผลในแดชบอร์ดที่สามารถจัดเรียงได้`,
             },
         ],
+    },
+
+    // Industry Section
+    industrySection: {
+        title: 'ข้อมูลกลุ่มอุตสาหกรรม',
     },
 
     // How It Works Section

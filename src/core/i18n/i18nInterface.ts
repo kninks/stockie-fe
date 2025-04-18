@@ -21,11 +21,11 @@ export interface i18nInterface {
                 text: string;
                 icon: React.ElementType;
             };
-            industry: {
+            howToUse: {
                 text: string;
                 icon: React.ElementType;
             };
-            howToUse: {
+            industry: {
                 text: string;
                 icon: React.ElementType;
             };
@@ -53,11 +53,6 @@ export interface i18nInterface {
         };
     };
 
-    // Industry Section (industry info will use the fallback values)
-    industrySection: {
-        title: string;
-    };
-
     // HowToUse
     howToUseSection: {
         title: string;
@@ -65,6 +60,11 @@ export interface i18nInterface {
             header: string;
             description: string;
         }[];
+    };
+
+    // Industry Section (industry info will use the fallback values)
+    industrySection: {
+        title: string;
     };
 
     // How It Works Section

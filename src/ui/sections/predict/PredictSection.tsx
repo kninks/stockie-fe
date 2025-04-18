@@ -1,5 +1,4 @@
-import { Button, Grid2, Snackbar } from '@mui/material';
-import styles from './styles/Predict.module.css';
+import { Button, Grid2, Snackbar, useMediaQuery, useTheme } from '@mui/material';
 import { useEffect, useState } from 'react';
 import BusinessCenterRoundedIcon from '@mui/icons-material/BusinessCenterRounded';
 import AccessTimeFilledRoundedIcon from '@mui/icons-material/AccessTimeFilledRounded';
@@ -10,7 +9,6 @@ import PredictionResultDashboard from './PredictionResultDashboard.tsx';
 import { usePrediction } from '../../../core/api/apiService.ts';
 import { PredictRequestInterface } from '../../../core/models/apiInterface.ts';
 import { useInitialInfo } from '../../../core/context/InitialInfoContext.tsx';
-// import InfoRoundedIcon from '@mui/icons-material/InfoRounded';
 import { useLang } from '../../../core/context/LanguageContext.tsx';
 import SectionHeader from '../../components/SectionHeader.tsx';
 import { IconButton } from '@mui/material';
@@ -22,6 +20,9 @@ const PredictSection = () => {
     const { t } = useLang();
     const predictText = t.predictSection;
     const errorText = t.common.error;
+
+    const theme = useTheme();
+    const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
 
     const { initialInfo } = useInitialInfo();
     const industryOptions = initialInfo.industryOptions;
@@ -60,7 +61,11 @@ const PredictSection = () => {
                 direction="column"
                 spacing={2}
                 size={{ xs: 12, sm: 12, md: 10, lg: 10, xl: 8 }}
-                className={styles.wrapper}
+                sx={{
+                    backgroundColor: 'var(--surface)',
+                    borderRadius: isMobile ? '2.2rem' : '2.5rem',
+                    padding: isMobile ? '1.2rem' : '2rem',
+                }}
             >
                 <SectionHeader>{predictText.title}</SectionHeader>
                 <Grid2
@@ -71,7 +76,6 @@ const PredictSection = () => {
                         alignItems: 'end',
                         border: '1px solid var(--border-color)',
                         padding: '1rem',
-                        paddingBottom: '1.2rem',
                         borderRadius: '1.5rem',
                     }}
                 >
@@ -110,7 +114,7 @@ const PredictSection = () => {
                                 'height': '2.3rem',
                                 'fontWeight': '600',
                                 'fontSize': '1.05rem',
-                                'marginTop': '0.6rem',
+                                'marginTop': '0.3rem',
                                 '&:hover': {
                                     backgroundColor: 'var(--sub-yellow)',
                                 },
@@ -138,7 +142,10 @@ const PredictSection = () => {
                 onClose={() => {
                     setOpenErrorToast(false);
                 }}
-                anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
+                anchorOrigin={{
+                    vertical: isMobile ? 'bottom' : 'top',
+                    horizontal: 'center',
+                }}
                 message={errorText}
                 ContentProps={{
                     sx: {

@@ -2,9 +2,9 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding-top: env(safe-area-inset-top);
     padding-right: 0.5rem;
     padding-left: 0.5rem;
-    /*padding-top: 0.5rem;*/
     height: 4rem;
     background-color: var(--secondary);
     position: sticky;
@@ -12,26 +12,15 @@
     z-index: 1000;
 }
 
-.navItemWrapperLeft {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    letter-spacing: 0.1rem;
-}
-
 .navItemWrapperRight {
     display: flex;
-    justify-content: flex-end;
     align-items: center;
     height: 100%;
-    /*gap: 0.2rem;*/
 }
 
 .navItem {
     letter-spacing: 0.1rem;
     color: var(--soft-white);
-    /*color: var(--secondary);*/
     background: transparent;
     border: none;
     border-radius: 0;

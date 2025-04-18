@@ -7,7 +7,7 @@
 
 .industryCard {
     background-color: var(--surface);
-    border-radius: 10px;
+    border-radius: 0.8rem;
     width: 300px;
     padding: 1.2rem;
     display: flex;

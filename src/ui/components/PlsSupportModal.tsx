@@ -120,10 +120,13 @@ export const PlsSupportModalSideStockie = () => {
                         textAlign: 'center',
                     }}
                 >
-                    <Typography variant="h6" sx={{ fontWeight: 'bold', color: 'var(--black)' }}>
+                    <Typography
+                        variant="h6"
+                        sx={{ fontWeight: 'bold', color: 'var(--black-text)' }}
+                    >
                         Enjoying Stockie?
                     </Typography>
-                    <Typography sx={{ marginBottom: '1rem', color: 'var(--black)' }}>
+                    <Typography sx={{ marginBottom: '1rem', color: 'var(--black-text)' }}>
                         You can support the project here 💖
                     </Typography>
                     <img

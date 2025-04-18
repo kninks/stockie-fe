@@ -1,31 +1,24 @@
-import styles from './styles/Footer.module.css';
-import { Typography } from '@mui/material';
+import { Typography, useTheme, useMediaQuery } from '@mui/material';
 // import GitHubIcon from '@mui/icons-material/GitHub';
-import Box from '@mui/material/Box';
 import { LinkedInModal } from '../components/LinkedInModal.tsx';
 
 const Footer = () => {
+    const theme = useTheme();
+    const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+
     return (
-        <footer className={styles.container}>
+        <footer
+            style={{
+                backgroundColor: 'var(--secondary)',
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+                color: 'var(--soft-white)',
+                padding: isMobile ? '1rem 0.5rem 1rem 1rem' : '1rem 1rem 1rem 1.5rem',
+            }}
+        >
             <Typography>© 2025 Stockie. All rights reserved.</Typography>
-            <Box sx={{ display: 'flex', gap: '0.2rem' }}>
-                {/*<IconButton*/}
-                {/*    component={Link}*/}
-                {/*    href="https://github.com/kninks"*/}
-                {/*    target="_blank"*/}
-                {/*    rel="noopener"*/}
-                {/*    sx={{*/}
-                {/*        'color': 'var(--soft-white)',*/}
-                {/*        '&:hover': {*/}
-                {/*            backgroundColor: 'var(--grey-light-100)',*/}
-                {/*            color: 'var(--black)',*/}
-                {/*        },*/}
-                {/*    }}*/}
-                {/*>*/}
-                {/*    <GitHubIcon />*/}
-                {/*</IconButton>*/}
-                <LinkedInModal />
-            </Box>
+            <LinkedInModal />
         </footer>
     );
 };

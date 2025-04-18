@@ -4,7 +4,6 @@ import IndustrySection from './sections/industry/IndustrySection.tsx';
 import HowItWorksSection from './sections/howItWorks/HowItWorksSection.tsx';
 import './styles/HomePage.css';
 import NavBar from './layout/NavBar.tsx';
-// import { useEffect } from 'react';
 import Footer from './layout/Footer.tsx';
 import LandingSection from './sections/landing/LandingSection.tsx';
 
@@ -51,11 +50,11 @@ const HomePage = () => {
                 <section id="predict" className="section" data-section="true">
                     <PredictSection />
                 </section>
-                <section id="industry" className="section" data-section="true">
-                    <IndustrySection />
-                </section>
                 <section id="how-to-use" className="section" data-section="true">
                     <HowToUseSection />
+                </section>
+                <section id="industry" className="section" data-section="true">
+                    <IndustrySection />
                 </section>
                 <section id="guide" className="section" data-section="true">
                     <HowItWorksSection />

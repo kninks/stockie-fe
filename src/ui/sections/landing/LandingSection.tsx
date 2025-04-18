@@ -38,6 +38,7 @@ const LandingSection = () => {
                             'marginTop': '1rem',
                             'padding': '1.5rem 2rem',
                             'letterSpacing': '0.05rem',
+                            'fontSize': '1.05rem',
                             'fontWeight': '600',
                             '&:hover': {
                                 backgroundColor: 'var(--secondary)',

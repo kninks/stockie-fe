@@ -3,7 +3,7 @@ import { i18nInterface } from './i18nInterface.ts';
 import AutoAwesomeRoundedIcon from '@mui/icons-material/AutoAwesomeRounded';
 import BusinessCenterRoundedIcon from '@mui/icons-material/BusinessCenterRounded';
 import BookRoundedIcon from '@mui/icons-material/BookRounded';
-import SettingsRoundedIcon from '@mui/icons-material/SettingsRounded';
+import BatchPredictionRoundedIcon from '@mui/icons-material/BatchPredictionRounded';
 
 import SourceRoundedIcon from '@mui/icons-material/SourceRounded';
 import ChecklistRoundedIcon from '@mui/icons-material/ChecklistRounded';
@@ -34,17 +34,17 @@ export const en: i18nInterface = {
                 text: 'Prediction',
                 icon: AutoAwesomeRoundedIcon,
             },
-            industry: {
-                text: 'Industry',
-                icon: BusinessCenterRoundedIcon,
-            },
             howToUse: {
                 text: 'Usage',
                 icon: BookRoundedIcon,
             },
+            industry: {
+                text: 'Industry',
+                icon: BusinessCenterRoundedIcon,
+            },
             howItWorks: {
                 text: 'About Engine',
-                icon: SettingsRoundedIcon,
+                icon: BatchPredictionRoundedIcon,
             },
         },
     },
@@ -66,39 +66,29 @@ export const en: i18nInterface = {
         },
     },
 
-    // Industry Section
-    industrySection: {
-        title: 'Industry Information',
-    },
-
     // HowToUse
     howToUseSection: {
         title: 'Usage',
         steps: [
             {
                 header: 'Select an Industry',
-                // description: `Choose one industry from the dropdown. The system will consider five
-                // representative stocks within the selected industry. You can view industry
-                // information and stock listings in the Industry section.`,
                 description: `Choose one industry from the dropdown to analyze five top-traded stocks in that group.`,
             },
             {
                 header: 'Select a Prediction Period',
                 description: `Pick the number of days ahead to forecast. For example, 
-                "1" is tomorrow, "5" is the next 5 days.`,
-                // description: `Pick the number of days ahead you want to predict. For example,
-                // "1" means tomorrow, while "5" refers to the next 5 days. The model uses historical
-                // data to forecast expected stock performance over the selected period.`,
+                1 is tomorrow, 5 is the next 5 days.`,
             },
             {
                 header: 'Click "Predict"',
-                description: `The system ranks the five stocks by predicted growth. 
-                Results appear in a sortable dashboard.`,
-                // description: `After clicking the Predict button, the system ranks the five stocks
-                // in your selected industry based on predicted percentage increase. Results will be
-                // shown in the dashboard, where you can also sort the table as needed.`,
+                description: `Five stocks is ranked by predicted growth. Results appear in a sortable dashboard.`,
             },
         ],
+    },
+
+    // Industry Section
+    industrySection: {
+        title: 'Industry Information',
     },
 
     // How It Works Section

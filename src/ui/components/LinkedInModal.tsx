@@ -96,6 +96,7 @@ export const LinkedInModal = () => {
                                     textOverflow: 'ellipsis',
                                     fontWeight: 600,
                                     textAlign: 'center',
+                                    color: 'var(--black-text)',
                                 }}
                             >
                                 {m.name}
