@@ -6,7 +6,6 @@ import SideStockie from '../assets/icons/SideStockie.tsx';
 import IconStockie from '../assets/icons/IconStockie.tsx';
 
 export const PlsSupportModalIconStockie = () => {
-    // const { t } = useLang();
     const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
@@ -23,9 +22,6 @@ export const PlsSupportModalIconStockie = () => {
                     '&:hover': { backgroundColor: 'transparent' },
                     '&:focus': { outline: 'none' },
                     '&.Mui-focusVisible': { boxShadow: 'none' },
-                    '&:hover .glow-text': {
-                        textShadow: '0 0 0 var(--soft-white), 0 0 0.5rem var(--soft-white)',
-                    },
                 }}
             >
                 <IconStockie />
@@ -43,7 +39,7 @@ export const PlsSupportModalIconStockie = () => {
                         top: '50%',
                         left: '50%',
                         transform: 'translate(-50%, -50%)',
-                        bgcolor: 'background.paper',
+                        backgroundColor: 'background.paper',
                         boxShadow: 24,
                         borderRadius: 2,
                         p: 4,
@@ -51,10 +47,16 @@ export const PlsSupportModalIconStockie = () => {
                         textAlign: 'center',
                     }}
                 >
-                    <Typography variant="h6" sx={{ fontWeight: 'bold', color: 'var(--black)' }}>
+                    <Typography
+                        sx={{
+                            fontSize: 'var(--header-3)',
+                            fontWeight: '600',
+                            color: 'var(--black-text)',
+                        }}
+                    >
                         Enjoying Stockie?
                     </Typography>
-                    <Typography sx={{ marginBottom: '1rem', color: 'var(--black)' }}>
+                    <Typography sx={{ marginBottom: '1rem', color: 'var(--black-text)' }}>
                         You can support the project here 💖
                     </Typography>
                     <img
@@ -62,7 +64,7 @@ export const PlsSupportModalIconStockie = () => {
                         alt="Please support me"
                         style={{
                             width: 'auto',
-                            maxWidth: 300,
+                            maxWidth: 250,
                             height: 'auto',
                         }}
                     />
@@ -111,11 +113,10 @@ export const PlsSupportModalSideStockie = () => {
                         top: '50%',
                         left: '50%',
                         transform: 'translate(-50%, -50%)',
-                        bgcolor: 'background.paper',
+                        backgroundColor: 'background.paper',
                         boxShadow: 24,
                         borderRadius: 2,
                         p: 4,
-                        minWidth: 250,
                         textAlign: 'center',
                     }}
                 >
@@ -130,7 +131,7 @@ export const PlsSupportModalSideStockie = () => {
                         alt="Please support me"
                         style={{
                             width: 'auto',
-                            maxWidth: 250,
+                            maxWidth: 280,
                             height: 'auto',
                         }}
                     />

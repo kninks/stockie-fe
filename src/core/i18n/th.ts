@@ -51,7 +51,7 @@ export const th: i18nInterface = {
 
     // Predict Section
     predictSection: {
-        title: 'การวิเคราะห์ราคาหุ้น',
+        title: 'วิเคราะห์ราคาหุ้น',
         selectIndustryLabel: 'กลุ่มอุตสาหกรรม',
         selectPeriodLabel: 'ระยะเวลาคาดการณ์',
         selectIndustryPlaceholder: 'เลือกกลุ่มอุตสาหกรรม',
@@ -59,8 +59,6 @@ export const th: i18nInterface = {
         predictButton: 'เริ่มวิเคราะห์',
         predictionDashboard: {
             title: 'ผลการวิเคราะห์',
-            closingPriceDate: 'ราคาปิด ณ วันที่',
-            predictedPriceDate: 'ราคาที่คาดการณ์ ณ วันที่',
             rank: 'อันดับ',
             stock: 'หุ้น',
             closingPrice: 'ราคาปิด',

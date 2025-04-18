@@ -46,8 +46,6 @@ export interface i18nInterface {
         predictButton: string;
         predictionDashboard: {
             title: string;
-            closingPriceDate: string;
-            predictedPriceDate: string;
             rank: string;
             stock: string;
             closingPrice: string;

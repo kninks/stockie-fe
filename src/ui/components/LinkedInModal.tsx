@@ -29,11 +29,7 @@ export const LinkedInModal = () => {
     return (
         <>
             <IconButton
-                // component={Link}
                 onClick={handleOpen}
-                // href="https://www.linkedin.com/in/kankanit-suppataratarn/"
-                // target="_blank"
-                // rel="noopener"
                 sx={{
                     'color': 'var(--soft-white)',
                     '&:hover': {
@@ -72,7 +68,12 @@ export const LinkedInModal = () => {
                     {teamMembers.map((m) => (
                         <Box
                             key={m.name}
-                            sx={{ display: 'flex', alignItems: 'center', flexDirection: 'column' }}
+                            sx={{
+                                display: 'flex',
+                                alignItems: 'center',
+                                flexDirection: 'column',
+                                gap: '0.3rem',
+                            }}
                         >
                             <Link
                                 href={m.linkedin}
@@ -87,7 +88,16 @@ export const LinkedInModal = () => {
                                     sx={{ width: '80px', height: '80px' }}
                                 />
                             </Link>
-                            <Typography variant="subtitle1" fontWeight={600}>
+                            <Typography
+                                noWrap
+                                sx={{
+                                    whiteSpace: 'nowrap',
+                                    overflow: 'hidden',
+                                    textOverflow: 'ellipsis',
+                                    fontWeight: 600,
+                                    textAlign: 'center',
+                                }}
+                            >
                                 {m.name}
                             </Typography>
                         </Box>

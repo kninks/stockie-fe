@@ -59,8 +59,6 @@ export const en: i18nInterface = {
         predictButton: 'Run Prediction',
         predictionDashboard: {
             title: 'Result',
-            closingPriceDate: 'Closing Price from',
-            predictedPriceDate: 'Forecasted Price for',
             rank: 'Rank',
             stock: 'Stock',
             closingPrice: 'Closing Price',

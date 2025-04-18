@@ -39,6 +39,10 @@ const PredictionResultDashboard = ({ data, error }: PredictionResultDashboardPro
 
     const closingPriceDate = data && !error ? new Date(data.closingPriceDate) : null;
     const predictedPriceDate = data && !error ? new Date(data.predictedPriceDate) : null;
+    console.log('closingPriceDate');
+    console.log(closingPriceDate);
+    console.log('predictedPriceDate');
+    console.log(predictedPriceDate);
     const predictions = data && !error ? data.rankedPredictions : predictionsDummy;
 
     const tableHeaders = ['rank', 'stockTicker', 'closingPrice', 'predictedPrice'];
@@ -77,7 +81,7 @@ const PredictionResultDashboard = ({ data, error }: PredictionResultDashboardPro
                     textAlign: 'left',
                     fontSize: 'var(--header-3)',
                     fontWeight: '600',
-                    paddingInlineStart: '0.6em',
+                    paddingInlineStart: '0.7rem',
                 }}
             >
                 {staticText.title}
