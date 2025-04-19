@@ -121,16 +121,20 @@ const NavBar: React.FC = () => {
 
     const { t } = useLang();
     const navItems = [
-        { id: 'predict', label: t.layout.navbar.predict },
         { id: 'how-to-use', label: t.layout.navbar.howToUse },
+        { id: 'predict', label: t.layout.navbar.predict },
         { id: 'industry', label: t.layout.navbar.industry },
         { id: 'guide', label: t.layout.navbar.howItWorks },
     ];
     const [active, setActive] = useState<string>('');
 
     const handleNavigate = (id: string) => {
-        // setActive(id);
-        document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+        const element = document.getElementById(id);
+        if (element) {
+            const yOffset = -100;
+            const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+            window.scrollTo({ top: y, behavior: 'smooth' });
+        }
     };
 
     useEffect(() => {

@@ -5,8 +5,13 @@ import { useLang } from '../../../core/context/LanguageContext.tsx';
 const LandingSection = () => {
     const { t } = useLang();
     const stockieText = t.layout.home;
-    const handleScrollToPredict = () => {
-        document.getElementById('predict')?.scrollIntoView({ behavior: 'smooth' });
+    const handleScrollToUsage = () => {
+        const element = document.getElementById('how-to-use');
+        if (element) {
+            const yOffset = -100;
+            const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+            window.scrollTo({ top: y, behavior: 'smooth' });
+        }
     };
 
     return (
@@ -28,7 +33,7 @@ const LandingSection = () => {
                     <Typography sx={{ textAlign: 'center' }}>{stockieText.description}</Typography>
                     <Button
                         variant="contained"
-                        onClick={handleScrollToPredict}
+                        onClick={handleScrollToUsage}
                         disableRipple={false}
                         sx={{
                             'height': '2.3rem',

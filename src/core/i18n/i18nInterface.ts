@@ -59,7 +59,10 @@ export interface i18nInterface {
         steps: {
             header: string;
             description: string;
+            picture1?: string;
+            picture2?: string;
         }[];
+        startButton: string;
     };
 
     // Industry Section (industry info will use the fallback values)

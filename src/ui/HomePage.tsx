@@ -50,11 +50,11 @@ const HomePage = () => {
             <NavBar />
             <LandingSection />
             <div className={isMobile ? 'page-mobile' : 'page'}>
-                <section id="predict" className="section" data-section="true">
-                    <PredictSection />
-                </section>
                 <section id="how-to-use" className="section" data-section="true">
                     <HowToUseSection />
+                </section>
+                <section id="predict" className="section" data-section="true">
+                    <PredictSection />
                 </section>
                 <section id="industry" className="section" data-section="true">
                     <IndustrySection />

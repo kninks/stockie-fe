@@ -73,17 +73,24 @@ export const en: i18nInterface = {
             {
                 header: 'Select an Industry',
                 description: `Choose one industry from the dropdown to analyze five top-traded stocks in that group.`,
+                picture1: `/indus-before.png`,
+                picture2: `/indus-after.png`,
             },
             {
                 header: 'Select a Prediction Period',
                 description: `Pick the number of days ahead to forecast. For example, 
                 1 is the next market date.`,
+                picture1: `/period-before.png`,
+                picture2: `/period-after.png`,
             },
             {
                 header: 'Click "Run Prediction"',
                 description: `Five stocks is ranked by predicted growth. Results appear in a sortable dashboard.`,
+                picture1: '/predict-before.png',
+                picture2: '/predict-after.png',
             },
         ],
+        startButton: 'Start Prediction',
     },
 
     // Industry Section

@@ -56,7 +56,7 @@ export const th: i18nInterface = {
         selectPeriodLabel: 'ระยะเวลาคาดการณ์',
         selectIndustryPlaceholder: 'เลือกกลุ่มอุตสาหกรรม',
         selectPeriodPlaceholder: 'เลือกระยะเวลา',
-        predictButton: 'เริ่มวิเคราะห์',
+        predictButton: 'วิเคราะห์',
         predictionDashboard: {
             title: 'ผลการวิเคราะห์',
             rank: 'อันดับ',
@@ -73,16 +73,23 @@ export const th: i18nInterface = {
             {
                 header: 'เลือกกลุ่มอุตสาหกรรม',
                 description: `เลือกกลุ่มจากเมนูดรอปดาวน์ หุ้นตัวแทน 5 ตัวในกลุ่ทมี่เลือกจะถูกวิเคราะห์ โดยดูข้อมูลเพิ่มเติมได้ในหน้ากลุ่มอุตสาหกรรม`,
+                picture1: `/indus-before.png`,
+                picture2: `/indus-after.png`,
             },
             {
                 header: 'เลือกระยะเวลาคาดการณ์',
                 description: `เลือกจำนวนวันที่ต้องการวิเคราะห์ เช่น 1 วัน หรือ 5 วัน`,
+                picture1: `/period-before.png`,
+                picture2: `/period-after.png`,
             },
             {
                 header: 'คลิก "เริ่มวิเคราะห์"',
                 description: `หุ้นจะถูกจัดอันดับตามเปอร์เซ็นต์การเพิ่มขึ้นของราคาที่คาดการณ์ พร้อมแสดงผลในแดชบอร์ดที่สามารถจัดเรียงได้`,
+                picture1: '/predict-before.png',
+                picture2: '/predict-after.png',
             },
         ],
+        startButton: 'เริ่มวิเคราะห์',
     },
 
     // Industry Section
