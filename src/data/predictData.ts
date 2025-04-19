@@ -14,8 +14,7 @@ export const industryOptions: SelectDropdownOptionInterface[] = [
 
 export const periodOptions: SelectDropdownOptionInterface<number>[] = [
     { value: 1, label: '1 day' },
-    { value: 3, label: '3 days' },
-    { value: 3, label: '5 days ' },
+    { value: 5, label: '5 days ' },
     { value: 10, label: '10 days' },
     { value: 15, label: '15 days' },
 ];
