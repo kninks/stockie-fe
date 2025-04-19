@@ -6,8 +6,11 @@ import './styles/HomePage.css';
 import NavBar from './layout/NavBar.tsx';
 import Footer from './layout/Footer.tsx';
 import LandingSection from './sections/landing/LandingSection.tsx';
+import { useMediaQuery, useTheme } from '@mui/material';
 
 const HomePage = () => {
+    const theme = useTheme();
+    const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
     // useEffect(() => {
     //     const sections = document.querySelectorAll('[data-section]');
     //
@@ -46,7 +49,7 @@ const HomePage = () => {
         <>
             <NavBar />
             <LandingSection />
-            <div className="page">
+            <div className={isMobile ? 'page-mobile' : 'page'}>
                 <section id="predict" className="section" data-section="true">
                     <PredictSection />
                 </section>

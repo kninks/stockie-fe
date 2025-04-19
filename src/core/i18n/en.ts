@@ -77,10 +77,10 @@ export const en: i18nInterface = {
             {
                 header: 'Select a Prediction Period',
                 description: `Pick the number of days ahead to forecast. For example, 
-                1 is tomorrow, 5 is the next 5 days.`,
+                1 is the next market date.`,
             },
             {
-                header: 'Click "Predict"',
+                header: 'Click "Run Prediction"',
                 description: `Five stocks is ranked by predicted growth. Results appear in a sortable dashboard.`,
             },
         ],

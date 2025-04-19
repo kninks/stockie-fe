@@ -5,6 +5,14 @@
     overflow-x: scroll;
 }
 
+.page-mobile {
+    width: 100%;
+    padding: 0 1.5rem;
+    /*padding: 0 clamp(5vw, 8vw, 60px);*/
+    justify-items: center;
+    overflow-x: scroll;
+}
+
 .title {
     font-size: 1.5em;
     text-align: center;
