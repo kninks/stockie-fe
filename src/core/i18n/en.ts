@@ -23,11 +23,9 @@ export const en: i18nInterface = {
             title: 'Stockie',
             subtitle: 'Your Smart Assistant for Thai Stock Prediction',
             description: `Stockie uses machine learning to predict short-term stock returns in the 
-            Thai market with over 94% accuracy. Simply select an industry and time period to get 
-            quick and data-driven insights to support your investment decisions. 
-            Perfect for both new and experienced investors.`,
+            Thai market with over 95% accuracy. Perfect for both new and experienced investors.`,
             getStarted: 'Get Started',
-            disclaimer: `Stockie is intended for educational purposes only. It is not a licensed financial advisory platform and should not be relied upon as a substitute for professional financial advice.`,
+            disclaimer: `Stockie is intended for educational purposes only -- not a licensed financial advisory platform.`,
         },
         navbar: {
             predict: {
